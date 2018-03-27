@@ -86,8 +86,13 @@ header {
 }
 
 .header-start-icon {
-  float: left;
   line-height: 64px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  a {
+    font-size: 38px;
+  }
 }
 
 .header-menus {

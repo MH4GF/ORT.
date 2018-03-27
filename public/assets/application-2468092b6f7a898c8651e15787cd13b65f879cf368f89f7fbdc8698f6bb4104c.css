@@ -89,47 +89,42 @@ header {
   font-size: 22px;
   line-height: 64px;
 }
-
-/* line 85, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 83, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .header-logo a {
   color: white;
   font-size: 22px;
 }
 
-/* line 90, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 89, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .header-start-icon {
   float: left;
   line-height: 64px;
 }
 
-/* line 95, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 94, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .header-menus {
   float: right;
   padding-right: 20px;
 }
-
-/* line 100, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 97, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .header-menus li {
   float: left;
   line-height: 64px;
   font-size: 13px;
-  color: white;
+  color: #f4f4f4;
   padding-left: 15px;
 }
-
-/* line 108, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 104, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .header-menus a {
   float: left;
   font-size: 13px;
-  color: white;
+  color: #f4f4f4;
 }
-
-/* line 114, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 109, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .header-menus .fa {
   padding-right: 5px;
 }
-
-/* line 118, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 112, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .header-menus input[type="submit"] {
   padding: 0 20px;
   float: left;
@@ -140,7 +135,7 @@ header {
 }
 
 /* top ================================ */
-/* line 128, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 123, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .top-main {
   padding: 200px 0 100px;
   text-align: center;
@@ -157,12 +152,12 @@ header {
   background-image: url("/top.jpg");
 }
 
-/* line 144, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 139, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .top-message {
   position: relative;
 }
 
-/* line 148, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 143, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .top-main h2 {
   font-size: 70px;
   font-weight: 500;
@@ -171,64 +166,45 @@ header {
   margin-bottom: 20px;
 }
 
-/* line 156, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 151, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .top-main p {
   font-size: 24px;
 }
 
 /* about ================================ */
-/* line 161, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 156, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .about-main {
   padding: 180px 8% 0;
   color: white;
 }
 
-/* line 166, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 161, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .about-main h2 {
   font-size: 64px;
   font-weight: 500;
   line-height: 1.4;
 }
 
-/* line 172, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 167, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .about-main p {
   font-weight: 200;
   font-size: 20px;
 }
 
-/* line 177, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 172, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .about-img {
   width: 84%;
 }
 
 /* フォーム================================ */
-/* line 182, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 177, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .form {
   max-width: 600px;
   margin: 0 auto;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
 }
-
-/* line 189, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
-.form-heading {
-  font-weight: 300;
-  margin: 60px 0 20px;
-  font-size: 48px;
-  color: #bcc8d4;
-}
-
-/* line 196, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
-.form-body {
-  padding: 30px;
-}
-
-/* line 200, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
-.form-error {
-  color: #ff4d75;
-}
-
-/* line 204, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 182, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .form input {
   width: 100%;
   border: 1px solid #d8dadf;
@@ -238,16 +214,14 @@ header {
   letter-spacing: 2px;
   border-radius: 2px;
 }
-
-/* line 214, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 191, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .form textarea {
   width: 100%;
   min-height: 110px;
   font-size: 16px;
   letter-spacing: 2px;
 }
-
-/* line 221, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 197, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .form input[type="submit"] {
   background-color: #3ecdc6;
   color: white;
@@ -260,15 +234,32 @@ header {
   float: right;
 }
 
-/* line 233, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 210, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+.form-heading {
+  font-weight: 300;
+  margin: 60px 0 20px;
+  font-size: 48px;
+  color: #bcc8d4;
+}
+
+/* line 217, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+.form-body {
+  padding: 30px;
+}
+/* line 219, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .form-body:after {
   content: '';
   display: table;
   clear: both;
 }
 
+/* line 226, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+.form-error {
+  color: #ff4d75;
+}
+
 /* フラッシュ ================================ */
-/* line 240, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 231, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .flash {
   padding: 10px 0;
   color: white;
@@ -283,15 +274,24 @@ header {
 }
 
 /* posts/index ================================ */
-/* line 254, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 245, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .posts-index-item {
   padding: 20px 30px;
   background-color: white;
   overflow: hidden;
   box-shadow: 0 2px 6px #c1ced7;
 }
+/* line 250, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+.posts-index-item a {
+  color: #2d3133;
+}
 
-/* line 261, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 255, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+.post-left {
+  float: left;
+  width: 10%;
+}
+/* line 258, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .post-left img {
   width: 50px;
   height: 50px;
@@ -300,23 +300,16 @@ header {
   object-fit: cover;
 }
 
-/* line 269, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 266, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .post-user-name a {
   font-weight: 600;
 }
+/* line 268, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+.post-user-name a:hover {
+  color: #000;
+}
 
 /* line 273, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
-.post-user-name a:hover {
-  color: #3ecdc6;
-}
-
-/* line 277, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
-.post-left {
-  float: left;
-  width: 10%;
-}
-
-/* line 282, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .post-right {
   float: left;
   width: 90%;
@@ -325,20 +318,19 @@ header {
 }
 
 /* posts/show ================================ */
-/* line 290, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 281, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .posts-show form {
   display: inline;
 }
 
-/* line 294, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 285, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .posts-show-item {
   padding: 30px;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
   overflow: hidden;
 }
-
-/* line 301, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 290, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .posts-show-item img {
   width: 60px;
   height: 60px;
@@ -347,40 +339,44 @@ header {
   vertical-align: middle;
   object-fit: cover;
 }
+/* line 298, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+.posts-show-item p {
+  font-size: 24px;
+  margin: 20px 0;
+}
 
-/* line 310, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 304, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .posts-show-item .post-user-name a {
   vertical-align: middle;
   font-size: 24px;
   margin-left: 15px;
 }
 
-/* line 316, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
-.posts-show-item p {
-  font-size: 24px;
-  margin: 20px 0;
-}
-
-/* line 321, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 310, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .post-time {
   color: #8899a6;
   margin-bottom: 10px;
 }
 
-/* line 326, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 315, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .post-menus {
   float: right;
 }
-
-/* line 330, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
-.post-menus a, .post-menus input {
+/* line 322, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+.post-menus input {
+  color: #8899a6;
+  text-decoration: underline;
+  font-size: 14px;
+}
+/* line 323, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+.post-menus a {
   color: #8899a6;
   text-decoration: underline;
   font-size: 14px;
 }
 
 /* posts/new ================================ */
-/* line 337, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 327, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .posts-new textarea {
   font-size: 20px;
   padding: 10px;
@@ -388,8 +384,7 @@ header {
   border: 1px solid #d8dadf;
   resize: none;
 }
-
-/* line 345, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
+/* line 333, /Users/miyagi/Desktop/work/ORT/app/assets/stylesheets/posts.scss */
 .posts-new textarea::-webkit-input-placeholder {
   font-size: 24px;
   opacity: 0.5;
