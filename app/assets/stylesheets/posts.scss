@@ -79,11 +79,10 @@ header {
   color: white;
   font-size: 22px;
   line-height: 64px;
-}
-
-.header-logo a{
-  color: white;
-  font-size: 22px;
+  a {
+    color: white;
+    font-size: 22px;
+  }
 }
 
 .header-start-icon {
@@ -94,33 +93,29 @@ header {
 .header-menus {
   float: right;
   padding-right: 20px;
-}
-
-.header-menus li {
-  float: left;
-  line-height: 64px;
-  font-size: 13px;
-  color: white;
-  padding-left: 15px;
-}
-
-.header-menus a {
-  float: left;
-  font-size: 13px;
-  color: white;
-}
-
-.header-menus .fa {
-  padding-right: 5px;
-}
-
-.header-menus input[type="submit"] {
-  padding: 0 20px;
-  float: left;
-  line-height: 64px;
-  color: white;
-  margin: 0;
-  font-size: 13px;
+  li {
+    float: left;
+    line-height: 64px;
+    font-size: 13px;
+    color: #f4f4f4;
+    padding-left: 15px;
+  }
+  a {
+    float: left;
+    font-size: 13px;
+    color: #f4f4f4;
+  }
+  .fa {
+    padding-right: 5px;
+  }
+  input[type="submit"] {
+    padding: 0 20px;
+    float: left;
+    line-height: 64px;
+    color: white;
+    margin: 0;
+    font-size: 13px;
+  }
 }
 
 /* top ================================ */
@@ -183,6 +178,32 @@ header {
   margin: 0 auto;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
+  input {
+    width: 100%;
+    border: 1px solid #d8dadf;
+    padding: 10px;
+    color: #57575f;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-radius: 2px;
+  }
+  textarea {
+    width: 100%;
+    min-height: 110px;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+  input[type="submit"] {
+    background-color: #3ecdc6;
+    color: white;
+    cursor: pointer;
+    font-weight: 300;
+    width: 120px;
+    border-radius: 2px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    float: right;
+  }
 }
 
 .form-heading {
@@ -194,45 +215,15 @@ header {
 
 .form-body {
   padding: 30px;
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
 .form-error {
   color: #ff4d75;
-}
-
-.form input {
-  width: 100%;
-  border: 1px solid #d8dadf;
-  padding: 10px;
-  color: #57575f;
-  font-size: 16px;
-  letter-spacing: 2px;
-  border-radius: 2px;
-}
-
-.form textarea {
-  width: 100%;
-  min-height: 110px;
-  font-size: 16px;
-  letter-spacing: 2px;
-}
-
-.form input[type="submit"] {
-  background-color: #3ecdc6;
-  color: white;
-  cursor: pointer;
-  font-weight: 300;
-  width: 120px;
-  border-radius: 2px;
-  margin-top: 8px;
-  margin-bottom: 0;
-  float: right;
-}
-
-.form-body:after {
-  content: '';
-  display: table;
-  clear: both;
 }
 
 /* フラッシュ ================================ */
@@ -255,27 +246,27 @@ header {
   background-color: white;
   overflow: hidden;
   box-shadow: 0 2px 6px #c1ced7;
-}
-
-.post-left img {
-  width: 50px;
-  height: 50px;
-  border-radius: 40%;
-  box-shadow: 0 2px 6px #c1ced7;
-  object-fit: cover;
-}
-
-.post-user-name a {
-  font-weight: 600;
-}
-
-.post-user-name a:hover {
-  color: #3ecdc6;
+  a {
+    color: #2d3133;
+  }
 }
 
 .post-left {
   float: left;
   width: 10%;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    object-fit: cover;
+  }
+}
+.post-user-name a {
+  font-weight: 600;
+  &:hover {
+    color: #000;
+  }
 }
 
 .post-right {
@@ -295,26 +286,24 @@ header {
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
   overflow: hidden;
-}
-
-.posts-show-item img {
-  width: 60px;
-  height: 60px;
-  border-radius: 40%;
-  box-shadow: 0 2px 6px #c1ced7;
-  vertical-align: middle;
-  object-fit: cover;
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px #c1ced7;
+    vertical-align: middle;
+    object-fit: cover;
+  }
+  p {
+    font-size: 24px;
+    margin: 20px 0;
+  }
 }
 
 .posts-show-item .post-user-name a {
   vertical-align: middle;
   font-size: 24px;
   margin-left: 15px;
-}
-
-.posts-show-item p {
-  font-size: 24px;
-  margin: 20px 0;
 }
 
 .post-time {
@@ -324,12 +313,13 @@ header {
 
 .post-menus {
   float: right;
-}
-
-.post-menus a, .post-menus input {
-  color: #8899a6;
-  text-decoration: underline;
-  font-size: 14px;
+  @mixin post-menus {
+    color: #8899a6;
+    text-decoration: underline;
+    font-size: 14px;
+  }
+  input { @include post-menus }
+  a { @include post-menus }
 }
 
 /* posts/new ================================ */
@@ -339,9 +329,8 @@ header {
   min-height: 140px;
   border: 1px solid rgb(216, 218, 223);
   resize: none;
-}
-
-.posts-new textarea::-webkit-input-placeholder {
-  font-size: 24px;
-  opacity: 0.5;
+  &::-webkit-input-placeholder {
+    font-size: 24px;
+    opacity: 0.5;
+  }
 }
