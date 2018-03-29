@@ -246,12 +246,23 @@ header {
 }
 
 /* posts/index ================================ */
+.running-time {
+  background-color: #FFF46E;
+  width: 15%;
+  text-align: center;
+  padding: 5px;
+  
+  p {
+    color: #fff;
+  }
+}
 .posts-index-item {
-  padding: 20px 30px;
   background-color: white;
   overflow: hidden;
-  box-shadow: 0 2px 6px #c1ced7;
+  margin-bottom: 10px;
   a {
+    display: block;
+    padding: 20px 30px;
     color: #2d3133;
   }
 }
@@ -282,6 +293,9 @@ header {
 }
 
 /* posts/show ================================ */
+.show {
+  padding: 5px;
+}
 .posts-show form {
   display: inline;
 }
@@ -289,7 +303,6 @@ header {
 .posts-show-item {
   padding: 30px;
   background-color: white;
-  box-shadow: 0 2px 6px #c1ced7;
   overflow: hidden;
   img {
     width: 60px;
