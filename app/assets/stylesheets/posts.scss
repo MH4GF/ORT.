@@ -328,6 +328,38 @@ header {
 }
 
 /* posts/new ================================ */
+.select-menu {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #f4f4f4;
+
+  h2 {
+    font-size: 20px;
+    margin-right: auto;
+  }
+  #select-time {
+    padding: 10px;
+    border: none;
+  }
+  p {
+    margin-left: 10px;
+  }
+}
+
+.title-form {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #f4f4f4;
+  h2 {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+}
+
 .posts-new textarea {
   font-size: 20px;
   padding: 10px;
