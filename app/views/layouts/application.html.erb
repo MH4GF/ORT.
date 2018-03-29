@@ -10,21 +10,27 @@
 
   <body>
     <header>
-  <div class="header-logo">
-    <%= link_to("ORT.","/") %>
-  </div>
-  <div class="header-start-icon">
-    <a href="/posts/new"><i class="fas fa-stopwatch"></i></a>
-  </div>
-  <ul class="header-menus">
-    <li>
-      <%= link_to("ORT.とは","/about") %>
-    </li>
-    <li>
-      <%= link_to("投稿一覧","/posts/index") %>
-    </li>
-  </ul>
-</header>
+      <div class="header-logo">
+        <%= link_to("ORT.","/") %>
+      </div>
+      <div class="header-start-icon">
+        <a href="/posts/new"><i class="fas fa-stopwatch"></i></a>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("ORT.とは","/about") %>
+        </li>
+        <li>
+          <%= link_to("投稿一覧","/posts/index") %>
+        </li>
+      </ul>
+    </header>
+
+    <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
