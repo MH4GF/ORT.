@@ -6,15 +6,13 @@
       </div>
       <div class="posts-index-item">
         <%= simple_format(post.content) %>
-        <div class="post-index-item-menus">
-          <nav class="post-submenus">
-            <ul>
-              <li><%= link_to("詳細を見る","/posts/#{post.id}") %></li>
-              <li><%= link_to("投稿の編集", "/posts/#{post.id}/edit") %></li>
-              <li><%= link_to("投稿の削除", "/posts/#{post.id}/destroy", {method: "post"}) %></li>
-            </ul>
-          </nav>
-        </div>
+        <nav class="post-submenus">
+          <ul>
+            <li><%= link_to("詳細を見る","/posts/#{post.id}") %></li>
+            <li><%= link_to("投稿の編集", "/posts/#{post.id}/edit") %></li>
+            <li><%= link_to("投稿の削除", "/posts/#{post.id}/destroy", {method: "post"}) %></li>
+          </ul>
+        </nav>
         <div class="post-submenus-btn">
           <i class="fas fa-caret-down"></i>
         </div>
@@ -22,25 +20,3 @@
     <% end %>
   </div>
 </div>
-<!-- <script type="text/javascript">
-$(function(){
-  $('.post-submenus-btn').click(function(){
-    $('.post-submenus').show();
-  });
-});
-</script> -->
-<!-- <script type="text/javascript">
-// $(function() {
-//  $('.post-submenus-btn').click(function(){
-//    $('.post-submenus').show();
-//  });
-// });
-
-
-$(function(){
-  $('.fa-caret-down').click(function(){
-    $('.post-submenus').show();
-  });
-});
-
-</script> -->

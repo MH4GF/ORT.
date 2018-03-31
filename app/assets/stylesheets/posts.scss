@@ -285,6 +285,10 @@ header {
     background: #fff;
     box-shadow: 0 1px 1px #c1ced7;
     display: none;
+    transition: .05s;
+  }
+  .open {
+    display: block!important;
   }
 }
 
