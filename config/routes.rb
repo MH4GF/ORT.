@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "posts#index"
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
@@ -9,6 +11,5 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy"
 
   post "posts/tweet" => "posts#tweet"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "posts#index"
+
 end
