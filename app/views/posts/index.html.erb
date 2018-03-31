@@ -5,7 +5,19 @@
         <p><%= post.running_time %> 分</p>
       </div>
       <div class="posts-index-item">
-        <%= link_to(post.content,"/posts/#{post.id}") %>
+        <%= simple_format(post.content) %>
+        <div class="post-index-item-menus">
+          <nav class="post-submenus">
+            <ul>
+              <li><%= link_to("詳細を見る","/posts/#{post.id}") %></li>
+              <li><%= link_to("投稿の編集", "/posts/#{post.id}/edit") %></li>
+              <li><%= link_to("投稿の削除", "/posts/#{post.id}/destroy", {method: "post"}) %></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="post-submenus-btn">
+          <i class="fas fa-caret-down"></i>
+        </div>
       </div>
     <% end %>
   </div>
