@@ -270,6 +270,7 @@ header {
     color: #2d3133;
   }
   .post-submenus-btn {
+    cursor: pointer;
     position: absolute;
     top: 0;
     right: 0;
@@ -283,6 +284,7 @@ header {
     padding: 20px 15px 10px;
     background: #fff;
     box-shadow: 0 1px 1px #c1ced7;
+    display: none;
   }
 }
 
