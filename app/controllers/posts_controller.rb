@@ -11,11 +11,24 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def tweet
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key         = ENV['TWITTER_CONSUMER_KEY']
+      config.consumer_secret      = ENV['TWITTER_CONSUMER_SECRET']
+      config.access_token         = ENV['TWITTER_ACCESS_TOKEN']
+      config.access_token_secret  = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+    end
+    # Twitter投稿
+    client.update(params[:content])
+    flash[:notice] = "投稿とツイートが完了しました"
+  end
+
   def create
     @post = Post.new(content: params[:content], running_time: params[:running_time])
     if @post.save
+      flash[:notice] = "投稿を作成しました"
       if params[:tweet_toggle] === "true"
-        flash[:notice] = "投稿を作成しました"
+        tweet
       end
       redirect_to("/posts/index")
     else
@@ -46,16 +59,4 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
-  def tweet
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key         = ENV['TWITTER_CONSUMER_KEY']
-      config.consumer_secret      = ENV['TWITTER_CONSUMER_SECRET']
-      config.access_token         = ENV['TWITTER_ACCESS_TOKEN']
-      config.access_token_secret  = ENV['TWITTER_ACCESS_TOKEN_SECRET']
-    end
-    # Twitter投稿
-    client.update(params[:content])
-    flash[:notice] = "ツイートを投稿しました"
-    redirect_to("/posts/index")
-  end
 end
