@@ -42,4 +42,17 @@ class PostsController < ApplicationController
     flash[:notice] = "投稿を削除しました"
     redirect_to("/posts/index")
   end
+
+  def tweet
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key         = ENV['TWITTER_CONSUMER_KEY']
+      config.consumer_secret      = ENV['TWITTER_CONSUMER_SECRET']
+      config.access_token         = ENV['TWITTER_ACCESS_TOKEN']
+      config.access_token_secret  = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+    end
+    # Twitter投稿
+    client.update(params[:content])
+    flash[:notice] = "ツイートを投稿しました"
+    redirect_to("/posts/index")
+  end
 end

@@ -33,7 +33,15 @@
           </div> -->
           <h2>Contents</h2>
           <textarea name="content"><%= @post.content %></textarea>
-          <input type="submit" value="投稿">
+          <div class="form_submit">
+            <i class="fab fa-twitter"></i>
+            <div class="switchArea">
+              <input type="checkbox" id="switch1">
+              <label for="switch1"><span></span></label>
+              <div class="swImg"></div>
+            </div>
+            <input type="submit" value="投稿">
+          </div>
         </div>
       </div>
     <% end %>

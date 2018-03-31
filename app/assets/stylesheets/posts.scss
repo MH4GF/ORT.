@@ -204,10 +204,10 @@ header {
     cursor: pointer;
     font-weight: 300;
     width: 120px;
+    height: 50px;
     border-radius: 2px;
     margin-top: 8px;
     margin-bottom: 0;
-    float: right;
   }
 }
 
@@ -251,7 +251,7 @@ header {
   width: 15%;
   text-align: center;
   padding: 5px;
-  
+
   p {
     color: #fff;
   }
@@ -382,5 +382,56 @@ header {
   &::-webkit-input-placeholder {
     font-size: 24px;
     opacity: 0.5;
+  }
+}
+.form_submit {
+  display: flex;
+  justify-content: flex-end;
+
+  .fa-twitter {
+    font-size: 25px;
+    margin-top: 27px;
+    color: #999;
+  }
+}
+
+.switchArea {
+  position       : relative;            /* 親要素が基点       */
+  width          : 52px;               /* ボタンの横幅       */
+  background     : #fff;                /* デフォルト背景色   */
+  margin: 25px 40px 15px 10px;
+  
+  input[type="checkbox"] {
+    display        : none;            /* チェックボックス非表示 */
+  }
+
+  label {
+    display        : block;               /* ボックス要素に変更 */
+    box-sizing     : border-box;          /* 枠線を含んだサイズ */
+    height         : 30px;                /* ボタンの高さ       */
+    border         : 2px solid #999;   /* 未選択タブのの枠線 */
+    border-radius  : 15px;                /* 角丸               */
+    cursor         : pointer;
+  }
+
+  input[type="checkbox"]:checked + label {
+    border-color   : #000;             /* 選択タブの枠線     */
+    background: #FFF46E;
+  }
+
+  .swImg {
+   position       : absolute;            /* 親要素からの相対位置*/
+   width          : 26px;                /* 丸の横幅           */
+   height         : 26px;                /* 丸の高さ           */
+   background     : #999;             /* カーソルタブの背景 */
+   top            : 2px;                 /* 親要素からの位置   */
+   left           : 2px;                 /* 親要素からの位置   */
+   border-radius  : 13px;                /* 角丸               */
+   transition     : .05s;                 /* 滑らか変化         */
+  }
+
+  input[type="checkbox"]:checked ~ .swImg {
+   transform      : translateX(22px);    /* 丸も右へ移動       */
+   background     : #000;             /* カーソルタブの背景 */
   }
 }
