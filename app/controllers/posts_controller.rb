@@ -19,7 +19,7 @@ class PostsController < ApplicationController
       config.access_token_secret  = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
     # Twitter投稿
-    client.update(params[:content])
+    client.update(params[:content] + "【" + params[:running_time] +"分】 #ORT #インターネット勉強班")
     flash[:notice] = "投稿とツイートが完了しました"
   end
 
