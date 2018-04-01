@@ -10,7 +10,7 @@
             </div>
           <% end %>
           <div class="select-menu">
-            <h2>Time</h2>
+            <h2 class="form-title">Time</h2>
             <select name="running_time" id="select-time">
               <option value="5">5</option>
               <option value="10">10</option>
@@ -27,11 +27,12 @@
             </select>
             <p>分</p>
           </div>
-          <!-- <div class="title-form">
-            <h2>WorkTitle</h2>
-            <input type="text" name="title">
-          </div> -->
-          <h2>Contents</h2>
+          <div class='field'>
+            <label for="tag_list" class="form-title">Tags</label>
+            <!-- <%= label_tag :tag_list, 'Tags' %><br/> -->
+            <%= text_field_tag 'tag_list', @post.tag_list.join(','), placeholder: "タグをカンマ区切りで入力" %>
+          </div>
+          <h2 class="form-title">Contents</h2>
           <textarea name="content"><%= @post.content %></textarea>
           <div class="form_submit">
             <i class="fab fa-twitter"></i>

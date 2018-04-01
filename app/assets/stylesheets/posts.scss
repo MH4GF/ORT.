@@ -64,6 +64,15 @@ body {
   clear: both;
 }
 
+::-webkit-input-placeholder {
+  color: #ccc;
+}
+::-moz-placeholder {
+  color: #ccc; opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #ccc;
+}
 /* ヘッダー ================================ */
 header {
   height: 64px;
@@ -246,16 +255,28 @@ header {
 }
 
 /* posts/index ================================ */
-.running-time {
-  background-color: #FFF46E;
-  width: 15%;
-  text-align: center;
-  padding: 5px;
+.posts-info {
+  display: flex;
+  flex-direction: row;
+
+  .tags {
+    background: #000;
+    padding: 5px 15px;
+    margin-right: 10px;
+  }
+
+  .running-time {
+    background-color: #FFF46E;
+    width: 15%;
+    text-align: center;
+    padding: 5px;
+  }
 
   p {
     color: #fff;
   }
 }
+
 .posts-index-item {
   background-color: white;
   margin-bottom: 10px;
@@ -382,10 +403,6 @@ header {
   margin-bottom: 10px;
   border-bottom: 1px solid #f4f4f4;
 
-  h2 {
-    font-size: 20px;
-    margin-right: auto;
-  }
   #select-time {
     padding: 10px;
     border: none;
@@ -393,6 +410,12 @@ header {
   p {
     margin-left: 10px;
   }
+}
+
+.form-title {
+  font-size: 20px;
+  margin-right: auto;
+  font-weight: bold;
 }
 
 .title-form {

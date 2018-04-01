@@ -1,8 +1,13 @@
 <div class="main posts-index">
   <div class="container">
     <% @posts.each do |post| %>
-      <div class="running-time">
-        <p><%= post.running_time %> 分</p>
+      <div class="posts-info">
+          <div class="tags">
+            <p><%= post.tag_list %></p>
+          </div>
+        <div class="running-time">
+          <p><%= post.running_time %> 分</p>
+        </div>
       </div>
       <div class="posts-index-item">
         <%= simple_format(post.content) %>

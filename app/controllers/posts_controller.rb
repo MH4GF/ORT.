@@ -19,12 +19,19 @@ class PostsController < ApplicationController
       config.access_token_secret  = ENV['TWITTER_ACCESS_TOKEN_SECRET']
     end
     # Twitter投稿
-    client.update(params[:content] + "【" + params[:running_time] +"分】 #ORT #インターネット勉強班")
+    client.update(tweet_contents)
     flash[:notice] = "投稿とツイートが完了しました"
   end
 
+  def tweet_contents
+    return params[:content] +
+           "【" + params[:running_time] + "分】" +
+           "#ORT #インターネット勉強班 " +
+           "#" + @post.tag_list.first + " "
+  end
+
   def create
-    @post = Post.new(content: params[:content], running_time: params[:running_time])
+    @post = Post.new(create_params)
     if @post.save
       flash[:notice] = "投稿を作成しました"
       if params[:tweet_toggle] === "true"
@@ -59,4 +66,8 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
+private
+  def create_params
+    params.permit(:content, :running_time, :tag_list)
+  end
 end
