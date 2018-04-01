@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/mbleigh/acts-as-taggable-on.git
+  revision: 38fefffc8f104455f87fdccd77841a2f550b16c6
+  branch: master
+  specs:
+    acts-as-taggable-on (5.0.0)
+      activerecord (>= 4.2.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -228,6 +236,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on!
   byebug (= 9.0.6)
   coffee-rails (= 4.2.2)
   devise
