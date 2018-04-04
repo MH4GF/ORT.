@@ -28,9 +28,8 @@
             <p>分</p>
           </div>
           <div class='field'>
-            <label for="tag_list" class="form-title">Tags</label>
-            <!-- <%= label_tag :tag_list, 'Tags' %><br/> -->
-            <%= text_field_tag 'tag_list', @post.tag_list.join(','), placeholder: "タグをカンマ区切りで入力" %>
+            <label for="tag_list" class="form-title">Categories</label>
+            <%= text_field_tag 'tag_list', @post.tag_list.join(','), placeholder: "カテゴリーをカンマ区切りで入力" %>
           </div>
           <h2 class="form-title">Contents</h2>
           <textarea name="content"><%= @post.content %></textarea>

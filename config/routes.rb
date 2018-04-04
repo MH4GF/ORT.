@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
 
-  post "posts/tweet" => "posts#tweet"
+  # post "posts/tweet" => "posts#tweet"
 
 end
