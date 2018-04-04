@@ -29,7 +29,12 @@
           </div>
           <div class='field'>
             <label for="tag_list" class="form-title">Categories</label>
-            <%= text_field_tag 'tag_list', @post.tag_list.join(','), placeholder: "カテゴリーをカンマ区切りで入力" %>
+            <% if params[:id] %>
+              <% tag = ActsAsTaggableOn::Tag.find_by(id: params[:id]) %>
+              <input type="text" name="tag_list" id="tag_list" value="<%= tag.name %>">
+            <% else %>
+              <input type="text" name="tag_list" id="tag_list" value="" placeholder="カテゴリーをカンマ区切りで入力">
+            <% end %>
           </div>
           <h2 class="form-title">Contents</h2>
           <textarea name="content"><%= @post.content %></textarea>

@@ -34,10 +34,16 @@ class PostsController < ApplicationController
     @post = Post.new(create_params)
     if @post.save
       flash[:notice] = "投稿を作成しました"
-      if params[:tweet_toggle] === "true"
-        tweet
-      end
+    if params[:tweet_toggle] === "true"
+      tweet
+    end
+    if @post.tag_list != []
+      latest_post = Post.all.last
+      tag = ActsAsTaggableOn::Tagging.find_by(taggable_id: latest_post.id)
+      redirect_to("/tags/#{tag.tag_id}")
+    else
       redirect_to("/posts/index")
+    end
     else
       render("posts/new")
     end

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get "tags/index" => "tags#index"
   get "tags/:id" => "tags#show"
+  get "tags/:id/new" => "posts#new"
   # post "posts/tweet" => "posts#tweet"
 
 end
