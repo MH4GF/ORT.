@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
 
+  get "tags/index" => "tags#index"
+  get "tags/:id" => "tags#show"
   # post "posts/tweet" => "posts#tweet"
 
 end

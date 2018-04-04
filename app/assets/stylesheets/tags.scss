@@ -1,3 +1,27 @@
 // Place all the styles related to the tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tags-title {
+  font-size: 50px;
+}
+
+.tags-item-wrap {
+  background: #FFF46E;
+  padding: 10px 20px 20px;
+  margin-bottom: 20px;
+
+  a {
+    color: #000;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  .tags-continue {
+    text-align: right;
+
+    a {
+      font-size: 25px;
+    }
+  }
+}

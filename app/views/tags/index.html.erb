@@ -1,2 +1,34 @@
-<h1>Tags#index</h1>
-<p>Find me in app/views/tags/index.html.erb</p>
+<div class="main posts-index">
+  <div class="container">
+    <h1 class="tags-title">カテゴリ一覧</h1>
+    <% @tags.each do |tag| %>
+      <% @posts = Post.tagged_with(tag).order(created_at: :desc).first %>
+      <div class="tags-item-wrap">
+        <div class="tags-item-title">
+          <a href="/tags/<%= tag.id %>"><%= tag.name %> (<%= tag.taggings_count %>)</a>
+        </div>
+        <div class="posts-info">
+          <div class="tags">
+            <p><%= @posts.running_time %> 分</p>
+          </div>
+        </div>
+        <div class="posts-index-item">
+          <%= simple_format(@posts.content) %>
+          <nav class="post-submenus">
+            <ul>
+              <li><%= link_to("詳細を見る","/posts/#{@posts.id}") %></li>
+              <li><%= link_to("投稿の編集", "/posts/#{@posts.id}/edit") %></li>
+              <li><%= link_to("投稿の削除", "/posts/#{@posts.id}/destroy", {method: "post"}) %></li>
+            </ul>
+          </nav>
+          <div class="post-submenus-btn">
+            <i class="fas fa-angle-down"></i>
+          </div>
+        </div>
+        <div class="tags-continue">
+          <%= link_to("Read More", "/tags/#{tag.id}") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
