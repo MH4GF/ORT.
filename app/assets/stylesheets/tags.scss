@@ -10,8 +10,13 @@
   }
   .tags-new-btn {
     font-size: 30px;
-    color: #000;
-    margin: 12px;
+    color: #2d3133;
+    margin: 18px;
+
+    i {
+      border: 5px solid;
+      padding: 3px;
+    }
   }
 }
 
@@ -22,7 +27,7 @@
   margin-bottom: 20px;
 
   a {
-    color: #000;
+    color: #2d3133;
     font-size: 40px;
     font-weight: bold;
   }

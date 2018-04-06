@@ -42,7 +42,7 @@ form input[type="submit"] {
 /* 共通レイアウト ================================ */
 body {
   color: #2d3133;
-  background-color: #000;
+  background-color: #2d3133;
   margin: 0;
   min-height: 1vh;
 }
@@ -208,7 +208,7 @@ header {
     letter-spacing: 2px;
   }
   input[type="submit"] {
-    background-color: #000;
+    background-color: #2d3133;
     color: white;
     cursor: pointer;
     font-weight: 300;
@@ -243,7 +243,7 @@ header {
 /* フラッシュ ================================ */
 .flash {
   padding: 10px 0;
-  color: #000;
+  color: #2d3133;
   background: #FFF46E;
   text-align: center;
   position: absolute;
@@ -260,9 +260,13 @@ header {
   flex-direction: row;
 
   .tags {
-    background: #000;
+    background: #2d3133;
     padding: 5px 15px;
     margin-right: 10px;
+
+    p {
+      color: #fff;
+    }
   }
 
   .running-time {
@@ -270,11 +274,12 @@ header {
     width: 15%;
     text-align: center;
     padding: 5px;
+
+    p {
+      color: #2d3133;
+    }
   }
 
-  p {
-    color: #fff;
-  }
 }
 
 .posts-index-item {
@@ -336,7 +341,7 @@ header {
 .post-user-name a {
   font-weight: 600;
   &:hover {
-    color: #000;
+    color: #2d3133;
   }
 }
 
@@ -448,7 +453,7 @@ header {
   .fa-twitter {
     font-size: 25px;
     margin-top: 27px;
-    color: #000;
+    color: #2d3133;
   }
 }
 
@@ -472,7 +477,7 @@ header {
   }
 
   input[type="checkbox"]:checked + label {
-    border-color   : #000;             /* 選択タブの枠線     */
+    border-color   : #2d3133;             /* 選択タブの枠線     */
     background: #FFF46E;
   }
 
@@ -489,6 +494,6 @@ header {
 
   input[type="checkbox"]:checked ~ .swImg {
    transform      : translateX(22px);    /* 丸も右へ移動       */
-   background     : #000;             /* カーソルタブの背景 */
+   background     : #2d3133;             /* カーソルタブの背景 */
   }
 }
