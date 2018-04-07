@@ -497,3 +497,92 @@ header {
    background     : #2d3133;             /* カーソルタブの背景 */
   }
 }
+
+// posts/new modal
+// body {
+//   font-family: 'Courier New', sans-serif;
+//   font-size: 14px;
+//   background: #eee;
+// }
+.timer-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+
+.timer-container {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: 20px auto;
+  width: 500px;
+  background: #f5f8fa;
+  text-align: center;
+  z-index: 100;
+}
+
+.timer-header {
+  background: #000;
+  border-bottom: 3px solid #FFF46E;
+  display: flex;
+
+  .timer-title {
+    font-size: 30px;
+    text-align: left;
+    color: #fff;
+    padding-left: 10px;
+  }
+
+  .close-modal {
+    color: #fff;
+    margin: 9px 20px;
+    font-size: 18px;
+  }
+}
+
+.pomodoro-minutes {
+  width: 220px;
+  font-size: 20px;
+  padding: 0 10px;
+  border: 2px solid;
+}
+
+#timer {
+  background: #fff;
+  height: 120px;
+  line-height: 120px;
+  font-size: 80px;
+  margin: 15px 0;
+}
+
+.timer-controls {
+  padding: 20px;
+}
+
+.controls > div {
+  cursor: pointer;
+  user-select: none;
+  width: 220px;
+  background: #000;
+  height: 45px;
+  line-height: 45px;
+}
+
+.controls {
+  display: flex;
+  justify-content:space-between;
+  color: #fff;
+}
+
+.controls > div + div {
+  margin-left: 20px;
+}
+
+.controls > div:hover {
+  opacity: 0.7;
+}
