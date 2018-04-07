@@ -1,4 +1,4 @@
-(function(){
+$(function(){
   'use strict';
 
   var timer = document.getElementById('timer');
@@ -25,16 +25,20 @@
     document.title = timerstring;
   }
 
+  $('.close-modal').click(function(){
+    $('#timer-modal').fadeOut();
+  });
+
   function countDown(){
     timerId = setTimeout(function(){
       timeLeft = timeToCountDown - (Date.now() - startTime);
       if (timeLeft < 0){
         isRunning = false;
-        start.textContent = 'Start';
         clearTimeout(timerId);
         timeLeft = 0;
         timeToCountDown = 0;
         updateTimer(timeLeft);
+        $('#timer-modal').fadeOut();
         return;
       }
       updateTimer(timeLeft);
