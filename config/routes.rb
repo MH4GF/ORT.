@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root "posts#index"
+  root "posts#about"
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  get "posts/index" => "posts#index"
+  get "posts/about" => "posts#about"
+  get "posts/index" => "posts#index", as: "user_root"
   get "posts/new" => "posts#new"
   get "posts/:id" => "posts#show"
   post "posts/create" => "posts#create"
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   get "tags/index" => "tags#index"
   get "tags/:id" => "tags#show"
   get "tags/:id/new" => "posts#new"
-  # post "posts/tweet" => "posts#tweet"
+
+  get "users/:id" => "users#show"
 
 end

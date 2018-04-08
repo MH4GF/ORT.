@@ -18,12 +18,21 @@
         <a href="/posts/new"><i class="fas fa-stopwatch"></i></a>
       </div>
       <ul class="header-menus">
-        <li>
-          <%= link_to("カテゴリ一覧","/tags/index") %>
-        </li>
-        <li>
-          <%= link_to("投稿一覧","/posts/index") %>
-        </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to("カテゴリ一覧","/tags/index") %>
+          </li>
+          <li>
+            <%= link_to("投稿一覧","/posts/index") %>
+          </li>
+          <li>
+            <%= link_to("ログアウト", destroy_user_session_path, method: :delete ) %>
+          </li>
+        <% else %>
+          <li >
+            <a href="/users/auth/twitter"><i class="fab fa-twitter"></i>登録/ログイン</a>
+          </li>
+        <% end %>
       </ul>
     </header>
 

@@ -1,4 +1,11 @@
 class PostsController < ApplicationController
+
+
+  before_action :move_to_about, except: :about
+
+  def about
+  end
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -31,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(create_params)
+    @post = Post.new(content: create_params[:content], running_time: create_params[:running_time], tag_list: create_params[:tag_list], user_id: current_user.id)
     if @post.save
       flash[:notice] = "投稿を作成しました"
     if params[:tweet_toggle] === "true"
@@ -76,4 +83,12 @@ private
   def create_params
     params.permit(:content, :running_time, :tag_list)
   end
+
+  def move_to_about
+    unless user_signed_in? then
+      flash[:notice] = "ログインして、学習を始めよう！"
+      redirect_to action: :about
+    end
+  end
+
 end
