@@ -9,14 +9,17 @@
       <h1 class="tags-title">そのタグは存在しません</h1>
     <% end %>
     <% @posts.each do |post| %>
-      <div class="posts-info">
-          <div class="tags">
-            <p><%= post.tag_list %></p>
-          </div>
-        <div class="running-time">
-          <p><%= post.running_time %> 分</p>
+    <div class="posts-info">
+      <% post.tag_list.each do |tag| %>
+        <% id = ActsAsTaggableOn::Tag.find_by(name: tag) %>
+        <div class="tags">
+          <%= link_to(tag,"/tags/#{id.id}") %>
         </div>
+      <% end %>
+      <div class="running-time">
+        <p><%= post.running_time %> 分</p>
       </div>
+    </div>
       <div class="posts-index-item">
         <%= simple_format(post.content) %>
         <nav class="post-submenus">

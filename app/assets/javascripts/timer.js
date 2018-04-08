@@ -76,4 +76,15 @@ $(function(){
     timeToCountDown = 0;
     updateTimer(timeToCountDown);
   });
+
+
+    // if (isRunning === true){
+    //   timer.classList.add('running');
+    //   // $('#timer').addClass('running');
+    // } else {
+    //   timer.classList.remove('running');
+    //   // $('#timer').removeClass('running');
+    // }
+
+
 })();
