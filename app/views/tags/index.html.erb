@@ -2,33 +2,14 @@
   <div class="container">
     <h1 class="tags-title">カテゴリ一覧</h1>
     <% @tags.each do |tag| %>
-      <% @posts = Post.tagged_with(tag).order(created_at: :desc).first %>
+      <% @posts = User.find_by(id: current_user.id).posts.tagged_with(tag) %>
+      <% unless @posts.count === 0 then %>
       <div class="tags-item-wrap">
         <div class="tags-item-title">
-          <a href="/tags/<%= tag.id %>"><%= tag.name %> (<%= tag.taggings_count %>)</a>
-        </div>
-        <div class="posts-info">
-          <div class="tags">
-            <p><%= @posts.running_time %> 分</p>
-          </div>
-        </div>
-        <div class="posts-index-item">
-          <%= simple_format(@posts.content) %>
-          <nav class="post-submenus">
-            <ul>
-              <li><%= link_to("詳細を見る","/posts/#{@posts.id}") %></li>
-              <li><%= link_to("投稿の編集", "/posts/#{@posts.id}/edit") %></li>
-              <li><%= link_to("投稿の削除", "/posts/#{@posts.id}/destroy", {method: "post"}) %></li>
-            </ul>
-          </nav>
-          <div class="post-submenus-btn">
-            <i class="fas fa-angle-down"></i>
-          </div>
-        </div>
-        <div class="tags-continue">
-          <%= link_to("Read More", "/tags/#{tag.id}") %>
+          <a href="/tags/<%= tag.id %>"><%= tag.name %> (<%= @posts.count %>)</a>
         </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
