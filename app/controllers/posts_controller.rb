@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.includes(:user).order(created_at: :desc)
   end
 
   def show
@@ -33,8 +33,7 @@ class PostsController < ApplicationController
   def tweet_contents
     return params[:content] +
            "【" + params[:running_time] + "分】" +
-           "#ORT #インターネット勉強班 " +
-           "#" + @post.tag_list.first + " "
+           "#ORT #インターネット勉強班 "
   end
 
   def create
@@ -49,7 +48,7 @@ class PostsController < ApplicationController
       tag = ActsAsTaggableOn::Tagging.find_by(taggable_id: latest_post.id)
       redirect_to("/tags/#{tag.tag_id}")
     else
-      redirect_to("/posts/index")
+      redirect_to("/users/mypage")
     end
     else
       render("posts/new")
@@ -66,7 +65,7 @@ class PostsController < ApplicationController
     @post.content = params[:content]
     if @post.save
       flash[:notice] = "投稿を編集しました"
-      redirect_to("/posts/index")
+      redirect_to("/users/mypage")
     else
       render("posts/edit")
     end
@@ -76,7 +75,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @post.destroy
     flash[:notice] = "投稿を削除しました"
-    redirect_to("/posts/index")
+    redirect_to("/users/mypage")
   end
 
 private

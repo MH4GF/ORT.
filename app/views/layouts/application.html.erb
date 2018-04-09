@@ -20,10 +20,13 @@
       <ul class="header-menus">
         <% if user_signed_in? %>
           <li>
-            <%= link_to("カテゴリ一覧","/tags/index") %>
+            <p><%= current_user.name %></p>
           </li>
+          <!-- <li>
+            <%= link_to("カテゴリ一覧","/tags/index") %>
+          </li> -->
           <li>
-            <%= link_to("投稿一覧","/posts/index") %>
+            <%= link_to("投稿一覧","/users/mypage") %>
           </li>
           <li>
             <%= link_to("ログアウト", destroy_user_session_path, method: :delete ) %>

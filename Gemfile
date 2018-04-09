@@ -14,6 +14,7 @@ gem 'omniauth-twitter'
 gem 'twitter'
 gem 'dotenv-rails'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'master'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
