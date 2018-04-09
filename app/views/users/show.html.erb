@@ -1,17 +1,5 @@
 <div class="main posts-index">
-  <div class="user-info">
-    <a href="/users/mypage"><h2><%= current_user.name %></h2></a>
-    <p>累計学習時間：5.5時間</p>
-    <p>投稿：24件</p>
-    <h3>タグ</h3>
-    <% @all_tags.each do |tag| %>
-      <% @tags = User.find_by(id: current_user.id).posts.tagged_with(tag) %>
-      <% unless @tags.count === 0 then %>
-        <a href="/tags/<%= tag.id %>"><%= tag.name %> (<%= @tags.count %>)</a><br>
-      <% end %>
-    <% end %>
-    <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "logout" ) %>
-  </div>
+<%= render partial: 'userinfo' %>
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-info">
