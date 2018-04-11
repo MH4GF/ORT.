@@ -87,6 +87,13 @@ body {
   }
 }
 
+.user-info-item {
+  display: flex;
+  .item-name {
+    width: 100px;
+  }
+}
+
 .container {
   max-width: 700px;
   margin: 60px 15px;
