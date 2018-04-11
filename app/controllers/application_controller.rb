@@ -8,8 +8,12 @@ class ApplicationController < ActionController::Base
   end
 
   def sum_running_time
+    if current_user === nil
+      return
+    end
+    
     @sum = 0
-    @user_posts = current_user.posts
+    @user_posts = User.find_by(id: current_user.id).posts
 
     @user_posts.each do |u_post|
       @sum += u_post.running_time.to_i

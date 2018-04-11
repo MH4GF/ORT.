@@ -6,7 +6,7 @@
     <div class="posts-show-item">
       <%= simple_format(@post.content) %>
       <div class="post-time">
-        <%= @post.created_at %>
+        <%= @post.created_at.strftime('%Y/%m/%d %T') %>
         <%= @post.tag_list %>
       </div>
       <div class="post-menus">

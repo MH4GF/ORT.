@@ -95,7 +95,7 @@ body {
 }
 
 .container {
-  max-width: 700px;
+  width: 700px;
   margin: 60px 15px;
   padding-left: 15px;
   padding-right: 15px;
@@ -205,17 +205,21 @@ header {
 
 /* about ================================ */
 .about-main {
-  padding: 180px 8% 0;
-  color: white;
+  padding: 50px 8% 0;
+  color: #fff;
+  display: block;
+  text-align: center;
+  background: url(https://giflog.net/wp-content/uploads/2018/04/077B9ED8-9CC5-4664-9301-DC793DA89E20.jpg);
+  background-size: cover;
 }
 
 .about-main h2 {
-  font-size: 64px;
-  font-weight: 500;
+  margin-top: 250px;
+  font-size: 40px;
   line-height: 1.4;
 }
 
-.about-main p {
+.about-text {
   font-weight: 200;
   font-size: 20px;
 }
@@ -224,9 +228,54 @@ header {
   width: 84%;
 }
 
+.about-btn-wrap {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-btn {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 4px;
+  opacity: 0.9;
+  position: relative;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  a {
+    padding: 10px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+.twitter-login {
+  background: #55ACEE;
+  width: 250px;
+  .fa-twitter {
+    margin-right: 5px;
+    font-size: 20px;
+  }
+}
+
+.about-continue {
+  background: #000;
+  width: 180px;
+}
+
 /* フォーム================================ */
 .form {
-  max-width: 600px;
+  width: 600px;
   margin: 0 auto;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
@@ -293,6 +342,11 @@ header {
 }
 
 /* posts/index ================================ */
+.no-posts {
+  margin-top: 30px;
+  color: #808B97;
+}
+
 .posts-info {
   display: flex;
   flex-direction: row;
@@ -324,10 +378,7 @@ header {
   background-color: white;
   margin-bottom: 10px;
   position: relative;
-
-  p {
-    padding:20px 30px;
-  }
+  padding: 20px 30px;
 
   a {
     display: block;
@@ -424,7 +475,7 @@ header {
 
 .post-time {
   color: #8899a6;
-  margin-bottom: 10px;
+  font-size: 12px;
 }
 
 .post-menus {
