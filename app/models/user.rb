@@ -12,7 +12,7 @@ class User < ApplicationRecord
      create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
-      user.name = auth['info']['name']
+      user.name = auth['info']['nickname']
       user.token = auth['credentials']['token']
       user.secret = auth['credentials']['secret']
       user.email = User.dummy_email(auth)

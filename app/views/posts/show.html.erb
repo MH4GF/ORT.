@@ -7,7 +7,6 @@
       <%= simple_format(@post.content) %>
       <div class="post-time">
         <%= @post.created_at.strftime('%Y/%m/%d %T') %>
-        <%= @post.tag_list %>
       </div>
       <div class="post-menus">
         <%= link_to("編集", "/posts/#{@post.id}/edit") %>
