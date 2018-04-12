@@ -205,6 +205,16 @@ header {
 }
 
 /* about ================================ */
+.main-wrap {
+  position: absolute;
+  top: 64px;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: #f5f8fa;
+  transition: .2s;
+}
+
 .about-main {
   color: #fff;
   display: block;
@@ -275,6 +285,51 @@ header {
 .about-continue {
   background: #000;
   width: 180px;
+}
+
+.about-howto {
+  text-align: center;
+  padding: 100px 0;
+  max-width: 1170px;
+  margin: 0 auto;
+
+  h3 {
+    margin-bottom: 40px;
+  }
+
+  h4 {
+    font-weight: normal;
+    font-size: 20px;
+  }
+}
+
+.white-back {
+  background: #fff;
+  display: flex;
+}
+
+.about-step {
+  padding: 150px 50px;
+
+  h3 {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+  .justnow {
+    margin: 100px 0 0;
+    font-weight: normal;
+  }
+}
+
+.posts-img {
+  margin: 100px 0;
+  width: 40%;
+  height: 40%;
+}
+
+.step-three {
+  text-align: center;
+  margin: 0 auto;
 }
 
 /* フォーム================================ */

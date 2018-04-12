@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     end
     # Twitter投稿
     client.update(tweet_contents)
-    flash[:notice] = "投稿とツイートが完了しました"
+    flash[:notice] = "投稿とツイートが完了しました。5分休憩しましょう！"
   end
 
   def tweet_contents
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(content: create_params[:content], running_time: create_params[:running_time], tag_list: create_params[:tag_list], user_id: current_user.id)
     if @post.save
-      flash[:notice] = "投稿を作成しました"
+      flash[:notice] = "投稿を作成しました。5分休憩しましょう！"
     if params[:tweet_toggle] === "true"
       tweet
     end
@@ -63,6 +63,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     @post.content = params[:content]
+    @post.running_time = params[:running_time]
+    @post.tag_list = params[:tag_list]
     if @post.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/users/mypage")
