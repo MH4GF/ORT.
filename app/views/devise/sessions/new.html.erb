@@ -1,26 +1,13 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="main about-main">
+  <div class="mainvisual">
+    <h2>学習する人の良質な集中とアウトプットを支援</h2>
+    <p class="about-text">ORT.(オルト)は、タイマーを使った効果的な集中と細かなアウトプットで、学習の質とスピードを向上するツールです。</p>
+    <div class="about-btn-wrap">
+      <div class="about-btn about-continue"><a href="#"><p>ORT.(オルト)とは</p></a></div>
+      <div class="about-btn twitter-login"><a href="/users/auth/twitter"><p><i class="fab fa-twitter"></i>Twitterアカウントでログイン</p></a></div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+  <div class="about-point">
 
-<%= render "devise/shared/links" %>
+  </div>
+</div>
