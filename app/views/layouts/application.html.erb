@@ -18,13 +18,12 @@
         <div class="header-start-icon">
           <a href="/posts/new"><i class="fas fa-stopwatch"></i></a>
         </div>
+      <% end %>
         <ul class="header-menus">
+          <% if user_signed_in? %>
           <li>
             <p><%= current_user.name %></p>
           </li>
-          <!-- <li>
-            <%= link_to("カテゴリ一覧","/tags/index") %>
-          </li> -->
           <li>
             <%= link_to("投稿一覧","/users/mypage") %>
           </li>

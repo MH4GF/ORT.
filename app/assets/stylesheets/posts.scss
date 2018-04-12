@@ -114,14 +114,16 @@ body {
 /* ヘッダー ================================ */
 header {
   height: 64px;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 100;
   width: 100%;
+  background: #2d3133;
   border-bottom: 7px solid #FFF46E;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-logo {
-  float: left;
   padding-left: 20px;
   color: white;
   font-size: 22px;
@@ -133,8 +135,8 @@ header {
 }
 
 .header-start-icon {
-  line-height: 64px;
   position: absolute;
+  line-height: 64px;
   top: 0;
   left: 50%;
   a {
@@ -143,7 +145,6 @@ header {
 }
 
 .header-menus {
-  float: right;
   padding-right: 20px;
   li {
     float: left;
