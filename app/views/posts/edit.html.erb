@@ -1,18 +1,43 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">編集する</h1>
-  </div>
   <%= form_tag("/posts/#{@post.id}/update") do %>
   <div class="form">
-      <div class="form-body">
-        <% @post.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
-            </div>
-          <% end %>
-        <textarea name="content"><%= @post.content %></textarea>
-        <input type="submit" value="保存">
+    <div class="form-body">
+      <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+      <div class="select-menu">
+        <h2 class="form-title">Time</h2>
+        <select name="running_time" id="select-time">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25" selected>25</option>
+          <option value="30">30</option>
+          <option value="35">35</option>
+          <option value="40">40</option>
+          <option value="45">45</option>
+          <option value="50">50</option>
+          <option value="55">55</option>
+          <option value="60">60</option>
+        </select>
+        <p>分</p>
+      </div>
+      <div class='field'>
+        <label for="tag_list" class="form-title">Tags</label>
+        <input type="text" name="tag_list" id="tag_list" value="" placeholder="タグをカンマ区切りで入力">
+      </div>
+      <h2 class="form-title">Contents</h2>
+      <textarea name="content"><%= @post.content %></textarea>
+      <div class="form_submit">
+        <input type="submit" value="投稿">
       </div>
     </div>
+    </div>
     <% end %>
+  </div>
 </div>

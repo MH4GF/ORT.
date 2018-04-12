@@ -64,12 +64,12 @@
             <p>分</p>
           </div>
           <div class='field'>
-            <label for="tag_list" class="form-title">Categories</label>
+            <label for="tag_list" class="form-title">Tags</label>
             <% if params[:id] %>
               <% tag = ActsAsTaggableOn::Tag.find_by(id: params[:id]) %>
               <input type="text" name="tag_list" id="tag_list" value="<%= tag.name %>">
             <% else %>
-              <input type="text" name="tag_list" id="tag_list" value="" placeholder="カテゴリーをカンマ区切りで入力">
+              <input type="text" name="tag_list" id="tag_list" value="" placeholder="タグをカンマ区切りで入力">
             <% end %>
           </div>
           <h2 class="form-title">Contents</h2>
