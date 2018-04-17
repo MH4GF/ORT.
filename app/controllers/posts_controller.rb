@@ -51,6 +51,7 @@ class PostsController < ApplicationController
       redirect_to("/users/mypage")
     end
     else
+      @display_none = "display_none"
       render("posts/new")
     end
 

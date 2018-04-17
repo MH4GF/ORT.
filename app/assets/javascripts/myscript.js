@@ -8,4 +8,11 @@ $(document).ready(function(){
       $('.post-submenus').removeClass('open');
     }
   });
+
+  $('.about-continue').click(function(){
+    var speed = 800;
+    var position = $('#how').offset().top;
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
 });

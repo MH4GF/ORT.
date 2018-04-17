@@ -13,7 +13,11 @@
   <body>
     <header>
       <div class="header-logo">
-        <%= link_to("ORT.","/") %>
+        <% if user_signed_in? %>
+          <%= link_to("ORT.","/user/mypage") %>
+        <% else %>
+          <%= link_to("ORT.","/") %>
+        <% end %>
       </div>
       <% if user_signed_in? %>
         <div class="header-start-icon">
@@ -22,9 +26,6 @@
       <% end %>
         <ul class="header-menus">
           <% if user_signed_in? %>
-          <li>
-            <p><%= current_user.name %></p>
-          </li>
           <li>
             <%= link_to("投稿一覧","/users/mypage") %>
           </li>

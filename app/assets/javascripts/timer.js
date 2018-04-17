@@ -47,6 +47,16 @@ $(function(){
   }
 
   start.addEventListener('click', function(){
+    if (timeToCountDown === 0){
+      var fadeOutMsg = function(){
+        $('.message-set').fadeOut();
+      };
+
+      $('.message-set').fadeIn();
+      setTimeout(fadeOutMsg,3000);
+      return
+    };
+
     if (isRunning === false){
       isRunning = true;
       start.textContent = 'Stop';
