@@ -70,7 +70,7 @@ body {
   margin: 60px 15px;
   padding: 15px;
   background: #fff;
-  width: 250px;
+  max-width: 250px;
 
   a {
     color: #2d3133;
@@ -99,7 +99,6 @@ body {
 }
 
 .container {
-  min-width: 400px;
   max-width: 700px;
   margin: 60px 15px;
   padding-left: 15px;
@@ -230,13 +229,17 @@ header {
 
 .mainvisual {
   background: rgba(0,0,0,0.3);
-  padding: 250px 0 333px;
+  padding: 18% 0 23%;
   position: relative;
 }
 
-.about-main h2 {
+.about-main h1 {
   font-size: 40px;
   line-height: 1.4;
+
+  span {
+    font-size: 80px;
+  }
 }
 
 .about-text {
@@ -299,11 +302,11 @@ header {
   max-width: 1170px;
   margin: 0 auto;
 
-  h3 {
+  h2 {
     margin-bottom: 40px;
   }
 
-  h4 {
+  h3 {
     font-weight: normal;
     font-size: 20px;
   }
@@ -311,6 +314,10 @@ header {
 
 .white-back {
   background: #fff;
+  display: flex;
+}
+
+.gray-back {
   display: flex;
 }
 
@@ -323,7 +330,7 @@ header {
   width: 60%;
   padding: 150px 50px;
 
-  h3 {
+  h2 {
     font-size: 30px;
     margin-bottom: 40px;
   }
@@ -686,7 +693,7 @@ header {
   left: 0;
   right: 0;
   margin: 20px auto;
-  width: 500px;
+  max-width: 500px;
   background: #f5f8fa;
   text-align: center;
   z-index: 100;
@@ -790,5 +797,60 @@ header {
     border: 14px solid transparent;
     border-top: 14px solid #000;
     z-index: 1;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .about-btn-wrap {
+    display: inline-block;
+  }
+
+  .about-btn {
+    width: 80vw;
+    margin: 20px auto;
+  }
+
+  .white-back {
+    display: block;
+  }
+
+  .gray-back {
+    display: block;
+
+    .about-step {
+      margin-top: 50px;
+    }
+  }
+
+  .step-three {
+    margin-top: 50px;
+  }
+
+  .timer-img {
+    width: 90%;
+  }
+
+  .posts-img {
+    width: 90%;
+  }
+
+  .about-step {
+    width: 100%;
+    padding: 0px 10% 50px;
+  }
+
+  .main {
+    display: block;
+  }
+
+  .user-info {
+    margin: 60px auto;
+    max-width: 90%;
+  }
+
+
+  .form {
+    max-width: 600px;
+    width: 100%;
   }
 }
