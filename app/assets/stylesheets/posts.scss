@@ -175,6 +175,10 @@ header {
   }
 }
 
+.login {
+  line-height: 64px;
+  padding: 0 15px;
+}
 .sma-btn {
   display: none;
 }
@@ -932,5 +936,9 @@ header {
   .form {
     max-width: 600px;
     width: 100%;
+  }
+
+  .posts-index-item .post-submenus {
+    right: 2px;
   }
 }

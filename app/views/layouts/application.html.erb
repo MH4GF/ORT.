@@ -18,6 +18,7 @@
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag('favicon.ico') %>
     <meta name="google-site-verification" content="WL2zFS_nt7PiJkGqU48r6ZPn5acS8u-QwPlA6jvAX3o" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
 
   <body>
@@ -34,21 +35,23 @@
           <a href="/posts/new"><i class="fas fa-stopwatch"></i></a>
         </div>
       <% end %>
+      <% if user_signed_in? %>
         <ul class="header-menus">
-          <% if user_signed_in? %>
           <li>
             <%= link_to("投稿一覧","/users/mypage") %>
           </li>
           <li>
             <%= link_to("ログアウト", destroy_user_session_path, method: :delete ) %>
           </li>
-        <% else %>
-          <li >
+        </ul>
+      <% else %>
+          <div class="login">
             <a href="/users/auth/twitter"><i class="fab fa-twitter"></i>登録/ログイン</a>
-          </li>
-        <% end %>
-      </ul>
-      <div class="sma-btn" id="js__MenuBtn"><i class="fas fa-bars"></i></div>
+          </div>
+      <% end %>
+      <% if user_signed_in? %>
+        <div class="sma-btn" id="js__MenuBtn"><i class="fas fa-bars"></i></div>
+      <% end %>
     </header>
 
     <% if flash[:notice] %>

@@ -1,4 +1,5 @@
 <div class="main posts-new">
+  <%= render partial: 'userinfo' %>
   <div class="container">
     <h1 class="form-heading">編集する</h1>
   <%= form_tag("/posts/#{@post.id}/update") do %>
