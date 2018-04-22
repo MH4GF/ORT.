@@ -15,4 +15,8 @@ $(document).ready(function(){
     $("html, body").animate({scrollTop:position}, speed, "swing");
     return false;
   });
+
+  $('#js__MenuBtn').click(function(){
+      $(".user-info").fadeToggle();
+    });
 });
