@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
+  get "contact" => "posts#contact"
 
   # get "tags/index" => "tags#index"
   get "tags/:id" => "tags#show"

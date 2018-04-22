@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 
-  before_action :move_to_about, except: :about
+  before_action :move_to_about, except: [:about, :contact]
 
   def about
   end
@@ -81,16 +81,12 @@ class PostsController < ApplicationController
     redirect_to("/users/mypage")
   end
 
+  def contact
+  end
+
 private
   def create_params
     params.permit(:content, :running_time, :tag_list)
-  end
-
-  def move_to_about
-    unless user_signed_in? then
-      flash[:notice] = "ログインして、学習を始めよう！"
-      redirect_to action: :about
-    end
   end
 
 end

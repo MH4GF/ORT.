@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     if current_user === nil
       return
     end
-    
+
     @sum = 0
     @user_posts = User.find_by(id: current_user.id).posts
 
@@ -22,5 +22,12 @@ class ApplicationController < ActionController::Base
     @hour = @sum / 60
     @min = @sum % 60
 
+  end
+
+  def move_to_about
+    unless user_signed_in? then
+      flash[:notice] = "ログインして、学習を始めよう！"
+      redirect_to controller: 'posts', action: 'about'
+    end
   end
 end
