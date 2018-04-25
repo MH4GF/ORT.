@@ -1,3 +1,6 @@
+<% if user_signed_in? %>
+  <%= render partial: 'userinfo' %>
+<% end %>
 <div class="main-wrap">
   <div class="about-main">
     <div class="mainvisual">
@@ -38,4 +41,5 @@
       <p>こまめにアウトプットすることで、あなたの成長の過程を詳細に振り返ることができます。</p>
       <h2 class="justnow">今すぐ始めてみませんか？</h2>
       <div class="about-btn twitter-login" style="display:inline-block;"><a href="/users/auth/twitter"><p><i class="fab fa-twitter"></i>Twitterアカウントでログイン</p></a></div>
-</div>
+    </div>
+  </section>

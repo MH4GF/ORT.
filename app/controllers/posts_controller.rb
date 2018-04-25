@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
 
-  before_action :move_to_about, except: [:about, :contact]
+  before_action :move_to_about, except: [:about, :contact, :terms, :privacy]
 
   def about
   end
@@ -84,6 +84,11 @@ class PostsController < ApplicationController
   def contact
   end
 
+  def terms
+  end
+
+  def privacy
+  end
 private
   def create_params
     params.permit(:content, :running_time, :tag_list)

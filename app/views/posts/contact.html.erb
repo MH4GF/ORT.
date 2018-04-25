@@ -1,4 +1,6 @@
-<%= render partial: 'userinfo' %>
+<% if user_signed_in? %>
+  <%= render partial: 'userinfo' %>
+<% end %>
 <div class="iframe-wrap">
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfRgr0mnCFTYFUQ1WVj3uae1JTS9IcwbLwqkpn8gbt_KGEfUA/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます...</iframe>
 </div>

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :tags, :sum_running_time, except: :about
+  before_action :tags, :sum_running_time
 
   def tags
     @all_tags = ActsAsTaggableOn::Tag.all

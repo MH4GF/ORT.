@@ -55,8 +55,7 @@ body {
 }
 
 .main {
-  position: absolute;
-  top: 64px;
+  padding: 64px 0 100px;
   width: 100%;
   height: auto;
   min-height: 100%;
@@ -846,7 +845,45 @@ header {
   }
 }
 
+.terms-wrap {
+  display: block;
 
+}
+
+.terms {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+
+  a {
+    color: #000;
+  }
+
+  h1 {
+    margin-top: 30px;
+    font-size: 30px;
+  }
+  h2 {
+    margin-top: 30px;
+  }
+}
+
+
+footer {
+  background: #2d3133;
+  color: #f4f4f4;
+  margin: 0 auto;
+  text-align: center;
+
+  .footer-wrap {
+    display: flex;
+    justify-content: center;
+
+    li {
+      margin: 20px;
+    }
+  }
+}
 @media screen and (max-width: 800px){
 
   .header-menus {
@@ -943,5 +980,16 @@ header {
 
   .posts-index-item .post-submenus {
     right: 2px;
+  }
+
+  .terms {
+    padding: 0 20px 100px;
+  }
+
+  footer {
+
+    .footer-wrap {
+      display: block;
+    }
   }
 }

@@ -60,5 +60,15 @@
     </div>
     <% end %>
     <%= yield %>
+    <footer>
+      <ul class="footer-wrap">
+        <li><%= link_to("このサイトについて","/") %></li>
+        <li><%= link_to("利用規約","/terms") %></li>
+        <li><%= link_to("プライバシーポリシー","/privacy") %></li>
+        <li><%= link_to("お問い合わせ","/contact") %></li>
+        <li><%= link_to("公式Twitter","https://twitter.com/ort_support") %></li>
+      </ul>
+      <p>©︎2018 ORT.運営事務局 <a href="https://twitter.com/gifu_w">@gifu_w</a></p>
+    </footer>
   </body>
 </html>
