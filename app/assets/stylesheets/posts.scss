@@ -342,12 +342,12 @@ header {
 
   h2 {
     font-size: 30px;
-    margin-bottom: 40px;
+    padding: 40px 0;
   }
   .justnow {
     margin: 100px 0 0;
     font-weight: normal;
-    font-size: 25px;
+    font-size: 22px;
   }
 }
 
@@ -991,5 +991,9 @@ footer {
     .footer-wrap {
       display: block;
     }
+  }
+
+  .googlead {
+    display: none;
   }
 }
