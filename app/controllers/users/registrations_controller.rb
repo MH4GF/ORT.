@@ -59,4 +59,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  # ユーザー退会
+  def destroy
+    @user = User.find_by(id: current_user.id)
+    @user.destroy
+    flash[:notice] = "退会が完了しました。ご利用いただき、誠にありがとうございました。"
+    redirect_to("/")
+  end
+
 end

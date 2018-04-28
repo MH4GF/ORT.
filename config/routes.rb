@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "posts#about"
 
+  devise_scope :user do
+      delete '/users/destroy' => 'devise/registrations#destroy'
+    end
+    
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get "posts/about" => "posts#about"

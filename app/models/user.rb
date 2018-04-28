@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  has_many :posts
+  has_many :posts, :dependent => :delete_all
 
   def self.find_for_oauth(auth)
    user = User.where(uid: auth.uid, provider: auth.provider).first
