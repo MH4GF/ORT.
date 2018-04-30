@@ -6,25 +6,25 @@
     </div>
     <div class="timer-header">
       <h2 class="form-title timer-title">Timer</h2>
-      <div class="close-modal">
-        <i class="fa fa-times"></i>
-      </div>
+      <div class="close-modal"><i class="fa fa-times"></i></div>
     </div>
     <div class="timer-controls">
       <div class="controls">
-        <select name="minutes" class="pomodoro-minutes" id="min">
-          <option value="5">5 min</option>
-          <option value="10">10 min</option>
-          <option value="15">15 min</option>
-          <option value="20">20 min</option>
-          <option value="25" selected>25 min</option>
-          <option value="30">30 min</option>
-          <option value="35">35 min</option>
-          <option value="40">40 min</option>
-          <option value="45">45 min</option>
-          <option value="50">50 min</option>
-          <option value="55">55 min</option>
-        </select>
+
+        <%= select :pomodoro, :min, [
+                                    ["5分", "5"],
+                                    ["10分", "10"],
+                                    ["15分", "15"],
+                                    ["20分", "20"],
+                                    ["25分", "25"],
+                                    ["30分", "30"],
+                                    ["35分", "35"],
+                                    ["40分", "40"],
+                                    ["45分", "45"],
+                                    ["50分", "50"],
+                                    ["55分", "55"]
+                                    ], :selected => "25"  %>
+
         <div id="set">Set</div>
       </div>
       <div class="maintimer" id="timer">00:00</div>
@@ -43,28 +43,30 @@
     <%= form_tag "/posts/create" do %>
       <div class="form">
         <div class="form-body">
+
+          <!-- エラーメッセージ -->
           <% @post.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
-            </div>
+            <div class="form-error"><%= message %></div>
           <% end %>
+
           <div class="select-menu">
             <h2 class="form-title">Time</h2>
-            <select name="running_time" id="select-time">
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
-              <option value="20">20</option>
-              <option value="25" selected>25</option>
-              <option value="30">30</option>
-              <option value="35">35</option>
-              <option value="40">40</option>
-              <option value="45">45</option>
-              <option value="50">50</option>
-              <option value="55">55</option>
-            </select>
+            <%= select :select, :time, [
+                                        ["5", "5"],
+                                        ["10", "10"],
+                                        ["15", "15"],
+                                        ["20", "20"],
+                                        ["25", "25"],
+                                        ["30", "30"],
+                                        ["35", "35"],
+                                        ["40", "40"],
+                                        ["45", "45"],
+                                        ["50", "50"],
+                                        ["55", "55"]
+                                        ] %>
             <p>分</p>
           </div>
+
           <div class='field'>
             <label for="tag_list" class="form-title">Tags</label>
             <% if params[:id] %>

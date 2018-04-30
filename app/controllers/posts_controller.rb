@@ -52,7 +52,7 @@ class PostsController < ApplicationController
     end
     else
 
-      # バリデーションに引っかかり投稿ページにリダイレクトする場合はモーダルを出さない
+      # バリデーションに引っかかり投稿ページにリダイレクトする場合は、モーダルを出さない
       @display_none = "display_none"
 
       render("posts/new")

@@ -94,14 +94,14 @@ $(function(){
     if (isRunning === true){
       return;
     }
-    min = parseInt(document.getElementById('min').value);
+    min = parseInt(document.getElementById('pomodoro_min').value);
     timeToCountDown = min * 60 * 1000;
     if (timeToCountDown >= 60 * 60 * 1000){
       timeToCountDown = 0;
     }
 
     // 投稿画面の時間選択にも反映させる
-    $("#select-time").val(min);
+    $("#select_time").val(min);
 
     updateTimer(timeToCountDown);
   });
