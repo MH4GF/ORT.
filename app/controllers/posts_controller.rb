@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
-
+  # ログインしていない場合はaboutにリダイレクト
   before_action :move_to_about, except: [:about, :contact, :terms, :privacy]
+
 
   def about
   end
@@ -30,32 +31,46 @@ class PostsController < ApplicationController
     flash[:notice] = "投稿とツイートが完了しました。5分休憩しましょう！"
   end
 
+  # ツイート内容
   def tweet_contents
     return params[:content] +
            "【" + params[:running_time] + "分】" +
            "#ORT #インターネット勉強班 "
   end
 
+
   def create
-    @post = Post.new(content: create_params[:content], running_time: create_params[:running_time], tag_list: create_params[:tag_list], user_id: current_user.id)
+    @post = Post.new(content:      create_params[:content],
+                     running_time: create_params[:running_time],
+                     tag_list:     create_params[:tag_list],
+                     user_id:      current_user.id)
+
+
+    # 投稿が保存できたかどうかで条件分岐
     if @post.save
       flash[:notice] = "投稿を作成しました。5分休憩しましょう！"
-    if params[:tweet_toggle] === "true"
-      tweet
-    end
-    if @post.tag_list != []
-      latest_post = Post.all.last
-      tag = ActsAsTaggableOn::Tagging.find_by(taggable_id: latest_post.id)
-      redirect_to("/tags/#{tag.tag_id}")
-    else
-      redirect_to("/users/mypage")
-    end
+
+      # ツイートトグルが有効の場合ツイート
+      if params[:tweet_toggle] === "true"
+        tweet
+      end
+
+      # タグがある場合はタグ一覧ページにリダイレクトし、ない場合はマイページへリダイレクト
+      if @post.tag_list != []
+        latest_post = Post.all.last
+        tag = ActsAsTaggableOn::Tagging.find_by(taggable_id: latest_post.id)
+        redirect_to("/tags/#{tag.tag_id}")
+      else
+        redirect_to("/users/mypage")
+      end
+
     else
 
-      # バリデーションに引っかかり投稿ページにリダイレクトする場合は、モーダルを出さない
+      # 投稿ページにリダイレクトするならタイマーのモーダルは出さない
       @display_none = "display_none"
 
       render("posts/new")
+
     end
 
   end
@@ -66,15 +81,19 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
+
     @post.content = params[:content]
     @post.running_time = params[:running_time]
     @post.tag_list = params[:tag_list]
+
+    # 投稿が保存できたかどうかで条件分岐
     if @post.save
       flash[:notice] = "投稿を編集しました"
       redirect_to("/users/mypage")
     else
       render("posts/edit")
     end
+
   end
 
   def destroy
@@ -92,7 +111,10 @@ class PostsController < ApplicationController
 
   def privacy
   end
+
 private
+
+  # ストロングパラメーター
   def create_params
     params.permit(:content, :running_time, :tag_list)
   end

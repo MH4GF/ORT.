@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <title>ORT. -ポモドーロテクニックを使った学習記録アプリ-</title>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117991188-1"></script>
     <script>
@@ -10,31 +13,54 @@
 
       gtag('config', 'UA-117991188-1');
     </script>
-    <title>ORT. -ポモドーロテクニックを使った学習記録アプリ-</title>
+
+    <!-- GoogleAdsense広告 -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8225452416450531",
+              enable_page_level_ads: true
+         });
+    </script>
+
+    <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+    <!-- jQuery CDN -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag('favicon.ico') %>
+
     <meta name="google-site-verification" content="WL2zFS_nt7PiJkGqU48r6ZPn5acS8u-QwPlA6jvAX3o" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
 
   <body>
+
     <header>
+
       <div class="header-logo">
+
+        <!-- ログインしている場合はマイページに、していなければaboutページに -->
         <% if user_signed_in? %>
           <%= link_to("ORT.","/users/mypage") %>
         <% else %>
           <%= link_to("ORT.","/") %>
         <% end %>
+
       </div>
+
+      <!-- ログインしている場合のみタイマーボタンを表示 -->
       <% if user_signed_in? %>
         <div class="header-start-icon">
           <a href="/posts/new"><i class="fas fa-stopwatch"></i></a>
         </div>
       <% end %>
+
+      <!-- ログインしているか否かで表示するナビゲーションメニューを変える -->
       <% if user_signed_in? %>
         <ul class="header-menus">
           <li>
@@ -44,22 +70,32 @@
             <%= link_to("ログアウト", destroy_user_session_path, method: :delete ) %>
           </li>
         </ul>
+
       <% else %>
           <div class="login">
             <a href="/users/auth/twitter"><i class="fab fa-twitter"></i>登録/ログイン</a>
           </div>
+
       <% end %>
+
+      <!-- ログインしている場合のみスマホ用サイドメニューボタンを表示する -->
       <% if user_signed_in? %>
         <div class="sma-btn" id="js__MenuBtn"><i class="fas fa-bars"></i></div>
       <% end %>
+
     </header>
 
+    <!-- フラッシュ -->
     <% if flash[:notice] %>
     <div class="flash">
       <%= flash[:notice] %>
     </div>
     <% end %>
+
+    <!-- コンテンツ -->
     <%= yield %>
+
+    <!-- フッター -->
     <footer>
       <ul class="footer-wrap">
         <li><%= link_to("このサイトについて","/") %></li>
@@ -70,5 +106,7 @@
       </ul>
       <p>©︎2018 ORT.運営事務局 <a href="https://twitter.com/gifu_w">@gifu_w</a></p>
     </footer>
+
   </body>
+  
 </html>
