@@ -94,7 +94,7 @@ $(function(){
     if (isRunning === true){
       return;
     }
-    min = parseInt(document.getElementById('pomodoro_min').value);
+    min = parseInt(document.getElementById('min').value);
     timeToCountDown = min * 60 * 1000;
     if (timeToCountDown >= 60 * 60 * 1000){
       timeToCountDown = 0;

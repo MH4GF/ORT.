@@ -11,19 +11,25 @@
     <div class="timer-controls">
       <div class="controls">
 
-        <%= select :pomodoro, :min, [
-                                    ["5分", "5"],
-                                    ["10分", "10"],
-                                    ["15分", "15"],
-                                    ["20分", "20"],
-                                    ["25分", "25"],
-                                    ["30分", "30"],
-                                    ["35分", "35"],
-                                    ["40分", "40"],
-                                    ["45分", "45"],
-                                    ["50分", "50"],
-                                    ["55分", "55"]
-                                    ], :selected => "25"  %>
+        <%= select :pomodoro,
+                   :min,
+                   [["5分", "5"],
+                    ["10分", "10"],
+                    ["15分", "15"],
+                    ["20分", "20"],
+                    ["25分", "25"],
+                    ["30分", "30"],
+                    ["35分", "35"],
+                    ["40分", "40"],
+                    ["45分", "45"],
+                    ["50分", "50"],
+                    ["55分", "55"]],
+
+                    {:selected => "25"},
+
+                    {:name => "minutes",
+                     :class => "pomodoro-minutes",
+                     :id => "min"}  %>
 
         <div id="set">Set</div>
       </div>
@@ -51,20 +57,22 @@
 
           <div class="select-menu">
             <h2 class="form-title">Time</h2>
-            <select name="running_time" id="select_time">
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
-              <option value="20">20</option>
-              <option value="25" selected>25</option>
-              <option value="30">30</option>
-              <option value="35">35</option>
-              <option value="40">40</option>
-              <option value="45">45</option>
-              <option value="50">50</option>
-              <option value="55">55</option>
-              <option value="60">60</option>
-            </select>
+            <%= select :running_time,
+                       :min, [["5", "5"],
+                              ["10", "10"],
+                              ["15", "15"],
+                              ["20", "20"],
+                              ["25", "25"],
+                              ["30", "30"],
+                              ["35", "35"],
+                              ["40", "40"],
+                              ["45", "45"],
+                              ["50", "50"],
+                              ["55", "55"]], {},
+
+                             {:name => "running_time",
+                              :id => "select_time"} %>
+                              
             <p>分</p>
           </div>
 
