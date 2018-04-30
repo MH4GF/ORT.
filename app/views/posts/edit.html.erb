@@ -2,47 +2,63 @@
   <%= render partial: 'userinfo' %>
   <div class="container">
     <h1 class="form-heading">編集する</h1>
-  <%= form_tag("/posts/#{@post.id}/update") do %>
-  <div class="form">
-    <div class="form-body">
-      <% @post.errors.full_messages.each do |message| %>
-        <div class="form-error">
-          <%= message %>
+
+    <%= form_tag("/posts/#{@post.id}/update") do %>
+    <div class="form">
+      <div class="form-body">
+
+        <!-- エラーメッセージ -->
+        <% @post.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+        <div class="select-menu">
+          <h2 class="form-title">Time</h2>
+          <%= select :running_time,
+                     :min,
+                     [["5", "5"],
+                      ["10", "10"],
+                      ["15", "15"],
+                      ["20", "20"],
+                      ["25", "25"],
+                      ["30", "30"],
+                      ["35", "35"],
+                      ["40", "40"],
+                      ["45", "45"],
+                      ["50", "50"],
+                      ["55", "55"]],
+
+                      # running_timeカラムの学習時間を挿入
+                      {:selected => "#{@post.running_time}"},
+
+                      {:name => "running_time",
+                       :id => "select_time"} %>
+
+          <p>分</p>
         </div>
-      <% end %>
-      <div class="select-menu">
-        <h2 class="form-title">Time</h2>
-        <%= select :running_time,
-                   :min, [["5", "5"],
-                          ["10", "10"],
-                          ["15", "15"],
-                          ["20", "20"],
-                          ["25", "25"],
-                          ["30", "30"],
-                          ["35", "35"],
-                          ["40", "40"],
-                          ["45", "45"],
-                          ["50", "50"],
-                          ["55", "55"]],
 
-                         {:selected => "#{@post.running_time}"},
+        <div class='field'>
+          <label for="tag_list" class="form-title">Tags</label>
 
-                         {:name => "running_time",
-                          :id => "select_time"} %>
+          <!-- tag_listカラムに入っているタグを挿入 -->
+          <input type="text" name="tag_list" id="tag_list" value="<%= @post.tag_list %>" placeholder="タグをカンマ区切りで入力">
 
-        <p>分</p>
+        </div>
+
+
+        <h2 class="form-title">Contents</h2>
+
+        <!-- contentカラムに入っている学習内容を挿入 -->
+        <textarea name="content"><%= @post.content %></textarea>
+
+        <div class="form_submit">
+          <input type="submit" value="編集">
+        </div>
       </div>
-      <div class='field'>
-        <label for="tag_list" class="form-title">Tags</label>
-        <input type="text" name="tag_list" id="tag_list" value="" placeholder="タグをカンマ区切りで入力">
-      </div>
-      <h2 class="form-title">Contents</h2>
-      <textarea name="content"><%= @post.content %></textarea>
-      <div class="form_submit">
-        <input type="submit" value="編集">
-      </div>
-    </div>
     </div>
     <% end %>
+
   </div>
 </div>
