@@ -12,19 +12,20 @@
       <% end %>
       <div class="select-menu">
         <h2 class="form-title">Time</h2>
-        <%= select :select, :time, [
-                                    ["5", "5"],
-                                    ["10", "10"],
-                                    ["15", "15"],
-                                    ["20", "20"],
-                                    ["25", "25"],
-                                    ["30", "30"],
-                                    ["35", "35"],
-                                    ["40", "40"],
-                                    ["45", "45"],
-                                    ["50", "50"],
-                                    ["55", "55"]
-                                    ], :selected => "#{@post.running_time}" %>
+        <select name="running_time" id="select_time">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+          <option value="35">35</option>
+          <option value="40">40</option>
+          <option value="45">45</option>
+          <option value="50">50</option>
+          <option value="55">55</option>
+          <option value="60">60</option>
+        </select>
         <p>分</p>
       </div>
       <div class='field'>
