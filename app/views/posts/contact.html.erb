@@ -1,6 +1,15 @@
 <% if user_signed_in? %>
   <%= render partial: 'userinfo' %>
 <% end %>
-<div class="iframe-wrap">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfRgr0mnCFTYFUQ1WVj3uae1JTS9IcwbLwqkpn8gbt_KGEfUA/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます...</iframe>
+<div class="main-static">
+  <div class="main terms-wrap">
+    <div class="terms">
+      <h1>お問い合わせ</h1>
+      <p>ORT.についてのご意見、ご要望、不具合のお問い合わせなどがございましたら、下記のリンクのフォームより必要事項を記入し、送信ボタンをクリックしてください。</p>
+      <div class="about-btn googleform"><a href="https://goo.gl/forms/5OQh18mcoxG77BdT2"><p>問い合わせページへ（Googleフォームへ）</p></a></div>
+      <% if user_signed_in? %>
+        <p>退会をご希望の方は、<%= link_to("こちら","users/destroy", method: :delete, :data => {:confirm => '投稿などのユーザーデータは削除され、復元することができなくなります。よろしいですか？'} ) %>より退会処理をおこなうことができます。</p>
+      <% end %>
+    </div>
+  </div>
 </div>
