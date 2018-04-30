@@ -1,23 +1,34 @@
 $(function(){
   'use strict';
 
+  // 更新するタイマー
   var timer = document.getElementById('timer');
+
+  // 時間選択
   var min;
+
+  // それぞれのボタンを取得
   var set = document.getElementById('set');
   var reset = document.getElementById('reset');
   var start = document.getElementById('start');
+
 
   var startTime;
   var timeLeft;
   var timeToCountDown = 0;
   var timerId;
+
+  // タイマーが動作しているかどうか
   var isRunning = false;
+
 
   function updateTimer(t){
     var d = new Date(t);
     var m = d.getMinutes();
     var s = d.getSeconds();
     var timerstring;
+
+    // timerstringに残り時間を代入し、タイマーを書き換える
     m = ('0' + m).slice(-2);
     s = ('0' + s).slice(-2);
     timerstring =  m + ':' + s;
@@ -25,10 +36,13 @@ $(function(){
     document.title = timerstring;
   }
 
+  // モーダルを閉じる
   $('.close-modal').click(function(){
     $('#timer-modal').fadeOut();
   });
 
+
+  // カウントダウン機能
   function countDown(){
     timerId = setTimeout(function(){
       timeLeft = timeToCountDown - (Date.now() - startTime);
@@ -46,7 +60,11 @@ $(function(){
     }, 10);
   }
 
+
+  // startボタンの挙動
   start.addEventListener('click', function(){
+
+    // タイマーの時間が0の場合にstartを押したらメッセージを表示する
     if (timeToCountDown === 0){
       var fadeOutMsg = function(){
         $('.message-set').fadeOut();
@@ -57,6 +75,7 @@ $(function(){
       return
     };
 
+    // startを押した際にタイマーが動作している場合・していない場合で条件分岐
     if (isRunning === false){
       isRunning = true;
       start.textContent = 'Stop';
@@ -70,6 +89,7 @@ $(function(){
     }
   });
 
+  // setボタンの挙動
   set.addEventListener('click', function(){
     if (isRunning === true){
       return;
@@ -79,22 +99,18 @@ $(function(){
     if (timeToCountDown >= 60 * 60 * 1000){
       timeToCountDown = 0;
     }
+
+    // 投稿画面の時間選択にも反映させる
+    $("#select-time").val(min);
+
     updateTimer(timeToCountDown);
   });
 
+  // resetボタンの挙動
   reset.addEventListener('click', function(){
     timeToCountDown = 0;
     updateTimer(timeToCountDown);
   });
-
-
-    // if (isRunning === true){
-    //   timer.classList.add('running');
-    //   // $('#timer').addClass('running');
-    // } else {
-    //   timer.classList.remove('running');
-    //   // $('#timer').removeClass('running');
-    // }
 
 
 })();

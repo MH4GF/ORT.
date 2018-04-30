@@ -51,7 +51,10 @@ class PostsController < ApplicationController
       redirect_to("/users/mypage")
     end
     else
+
+      # バリデーションに引っかかり投稿ページにリダイレクトする場合はモーダルを出さない
       @display_none = "display_none"
+
       render("posts/new")
     end
 
