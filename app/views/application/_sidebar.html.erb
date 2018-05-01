@@ -1,24 +1,44 @@
 <div class="side-wrap">
+
   <div class="user-info">
+
+    <!-- ユーザー名 -->
     <a href="/users/mypage"><h2><%= current_user.name %></h2></a>
+
+    <!-- 累計時間 -->
     <div class="user-info-item">
       <p class="item-name">累計時間</p>
       <p>：<%= @hour %>時間<%= @min %>分</p>
     </div>
+
+    <!-- 投稿数 -->
     <div class="user-info-item">
       <p class="item-name">投稿</p>
       <p>：<%= @user_posts.count %>件</p>
     </div>
-    <h3>タグ</h3>
+
+    <!-- タグ一覧 -->
+    <h3>タグ一覧</h3>
+
+    <!-- ユーザーの利用しているタグの数だけ繰り返し -->
     <% @all_tags.each do |tag| %>
+
+      <!-- タグを取得 -->
       <% @tags = User.find_by(id: current_user.id).posts.tagged_with(tag) %>
+
+      <!-- タグが0ではない場合にタグを表示 -->
       <% unless @tags.count === 0 then %>
         <a href="/tags/<%= tag.id %>"><%= tag.name %> (<%= @tags.count %>)</a><br>
       <% end %>
+
     <% end %>
-    <%= link_to("お問い合わせ", "/contact") %>
-    <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "logout" ) %>
+
+    <%= link_to("お問い合わせ", "/contact", class: "sidebar-links" ) %>
+    <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "sidebar-links" ) %>
+
   </div>
+
+  <!-- 広告 -->
   <div class="googlead">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- ort広告1 -->
@@ -30,4 +50,5 @@
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
+
 </div>

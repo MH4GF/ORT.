@@ -47,6 +47,16 @@ $(function(){
     timerId = setTimeout(function(){
       timeLeft = timeToCountDown - (Date.now() - startTime);
       if (timeLeft < 0){
+
+        Push.create("ORT.", {
+            body: "終了です。お疲れ様でした！",
+            timeout: 8000,
+            onClick: function () {
+                window.focus();
+                this.close();
+            }
+        });
+
         isRunning = false;
         clearTimeout(timerId);
         timeLeft = 0;
@@ -102,6 +112,9 @@ $(function(){
 
     // 投稿画面の時間選択にも反映させる
     $("#select_time").val(min);
+
+    // プッシュ通知の許可
+    Push.Permission.request();
 
     updateTimer(timeToCountDown);
   });

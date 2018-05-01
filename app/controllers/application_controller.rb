@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   before_action :tags, :sum_running_time
 
   def tags
+    if current_user === nil
+      return
+    end
+
     @all_tags = ActsAsTaggableOn::Tag.all
   end
 
@@ -25,9 +29,12 @@ class ApplicationController < ActionController::Base
   end
 
   def move_to_about
+
     unless user_signed_in? then
       flash[:notice] = "ログインして、学習を始めよう！"
       redirect_to controller: 'posts', action: 'about'
     end
+
   end
+  
 end
