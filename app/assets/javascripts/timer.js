@@ -47,7 +47,14 @@ $(function(){
     timerId = setTimeout(function(){
       timeLeft = timeToCountDown - (Date.now() - startTime);
       if (timeLeft < 0){
+        isRunning = false;
+        clearTimeout(timerId);
+        timeLeft = 0;
+        timeToCountDown = 0;
+        updateTimer(timeLeft);
+        $('#timer-modal').fadeOut();
 
+        // プッシュ通知
         Push.create("ORT.", {
             body: "終了です。お疲れ様でした！",
             timeout: 8000,
@@ -56,13 +63,7 @@ $(function(){
                 this.close();
             }
         });
-
-        isRunning = false;
-        clearTimeout(timerId);
-        timeLeft = 0;
-        timeToCountDown = 0;
-        updateTimer(timeLeft);
-        $('#timer-modal').fadeOut();
+        
         return;
       }
       updateTimer(timeLeft);
@@ -114,9 +115,14 @@ $(function(){
     $("#select_time").val(min);
 
     // プッシュ通知の許可
-    Push.Permission.request();
+    // FIXME iOSではブラウザ通知に対応していないためエラーになる　エラーになっても処理は続けて欲しい
+    try {
+      Push.Permission.request();
+    }
+    finally {
+      updateTimer(timeToCountDown);
+    }
 
-    updateTimer(timeToCountDown);
   });
 
   // resetボタンの挙動
