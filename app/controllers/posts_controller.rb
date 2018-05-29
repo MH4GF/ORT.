@@ -1,19 +1,20 @@
 class PostsController < ApplicationController
 
   # ログインしていない場合はaboutにリダイレクト
+  # FIXME この４つのメソッドを別のコントローラに分離して、ApplicationControllerでbefore_actionしたい
   before_action :move_to_about, except: [:about, :contact, :terms, :privacy]
 
 
   def about
   end
 
-  def index
-    @posts = Post.includes(:user).order(created_at: :desc)
-  end
+  # def index
+  #   @posts = Post.includes(:user).order(created_at: :desc)
+  # end
 
-  def show
-    @post = Post.find_by(id: params[:id])
-  end
+  # def show
+  #   @post = Post.find_by(id: params[:id])
+  # end
 
   def new
     @post = Post.new
@@ -67,6 +68,7 @@ class PostsController < ApplicationController
     else
 
       # 投稿ページにリダイレクトするならタイマーのモーダルは出さない
+      # FIXME なんだこれ
       @display_none = "display_none"
 
       render("posts/new")
@@ -93,7 +95,6 @@ class PostsController < ApplicationController
     else
       render("posts/edit")
     end
-
   end
 
   def destroy
@@ -113,10 +114,8 @@ class PostsController < ApplicationController
   end
 
 private
-
   # ストロングパラメーター
   def create_params
     params.permit(:content, :running_time, :tag_list)
   end
-
 end

@@ -1,25 +1,25 @@
 Rails.application.routes.draw do
   root "posts#about"
 
+  # 退会処理のルーティング
   devise_scope :user do
       delete '/users/destroy' => 'devise/registrations#destroy'
     end
-    
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   get "posts/about" => "posts#about"
-  # get "posts/index" => "posts#index"
   get "posts/new" => "posts#new"
-  # get "posts/:id" => "posts#show"
   post "posts/create" => "posts#create"
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
   post "posts/:id/destroy" => "posts#destroy"
+
+  # FIXME docsコントローラーに変えたい
   get "contact" => "posts#contact"
   get "terms" => "posts#terms"
   get "privacy" => "posts#privacy"
 
-  # get "tags/index" => "tags#index"
   get "tags/:id" => "tags#show"
   get "tags/:id/new" => "posts#new"
 

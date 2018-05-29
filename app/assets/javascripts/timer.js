@@ -12,7 +12,6 @@ $(function(){
   var reset = document.getElementById('reset');
   var start = document.getElementById('start');
 
-
   var startTime;
   var timeLeft;
   var timeToCountDown = 0;
@@ -20,7 +19,6 @@ $(function(){
 
   // タイマーが動作しているかどうか
   var isRunning = false;
-
 
   function updateTimer(t){
     var d = new Date(t);
@@ -63,7 +61,7 @@ $(function(){
                 this.close();
             }
         });
-        
+
         return;
       }
       updateTimer(timeLeft);
@@ -78,6 +76,8 @@ $(function(){
     // タイマーの時間が0の場合にstartを押したらメッセージを表示する
     if (timeToCountDown === 0){
       var fadeOutMsg = function(){
+
+        // FIXME クラス名変えたい
         $('.message-set').fadeOut();
       };
 
@@ -115,7 +115,7 @@ $(function(){
     $("#select_time").val(min);
 
     // プッシュ通知の許可
-    // FIXME iOSではブラウザ通知に対応していないためエラーになる　エラーになっても処理は続けて欲しい
+    // iOSではブラウザ通知に対応していないためエラーになるが、エラーになっても処理は続けて欲しい
     try {
       Push.Permission.request();
     }
