@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   before_action :tags, :sum_running_time
 
+  def posts
+    @posts = current_user.posts.order(created_at: :desc)
+  end
+
   def tags
     if current_user === nil
       return
@@ -19,10 +23,9 @@ class ApplicationController < ActionController::Base
     end
 
     @sum = 0
-    @user_posts = User.find_by(id: current_user.id).posts
 
-    # @user_postsに入っている投稿の配列から、running_timeカラムに入っている時間を@sumに足していく
-    @user_posts.each do |u_post|
+    # postsに入っている投稿の配列から、running_timeカラムに入っている時間を@sumに足していく
+    posts.each do |u_post|
       @sum += u_post.running_time.to_i
     end
 
