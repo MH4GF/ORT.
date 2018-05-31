@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   def tweet_contents
     return params[:content] +
            "【" + params[:running_time] + "分】" +
-           "#ORT #インターネット勉強班 "
+           "@ORT_support #インターネット勉強班 "
   end
 
 
