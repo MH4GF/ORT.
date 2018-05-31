@@ -3,7 +3,16 @@
   <div class="container">
     <% if @id %>
       <div class="tags-title-wrap">
-        <h1 class="tags-title"><%= @id %></h1>
+        <h1 class="tags-title">
+          <%= @id %>
+          <span>
+            <% if @hour == 0 %>
+              <%= @min %>分
+            <% else %>
+              <%= @hour %>時間<%= @min %>分
+            <% end %>
+          </span>
+        </h1>
       </div>
     <% else %>
       <h1 class="tags-title">そのタグは存在しません</h1>
