@@ -6,10 +6,10 @@
         <h1 class="tags-title">
           <%= @id %>
           <span>
-            <% if @hour == 0 %>
+            <% if @tagged_with_posts_hour == 0 %>
               <%= @min %>分
             <% else %>
-              <%= @hour %>時間<%= @min %>分
+              <%= @tagged_with_posts_hour %>時間<%= @tagged_with_posts_min %>分
             <% end %>
           </span>
         </h1>

@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
 
     @posts = current_user.posts.order(created_at: :desc)
     sum_running_time(@posts)
+    @posts_hour = @sum / 60
+    @posts_min = @sum % 60
   end
 
   def tags
@@ -34,8 +36,6 @@ class ApplicationController < ActionController::Base
       @sum += post.running_time.to_i
     end
 
-    @hour = @sum / 60
-    @min = @sum % 60
   end
 
   # ログインしていない場合はaboutへリダイレクト
