@@ -24,7 +24,7 @@
     <% @all_tags.each do |tag| %>
 
       <!-- タグを取得 -->
-      <% @tags = User.find_by(id: current_user.id).posts.tagged_with(tag) %>
+      <% @tags = current_user.posts.tagged_with(tag) %>
 
       <!-- タグが0ではない場合にタグを表示 -->
       <% unless @tags.count === 0 then %>

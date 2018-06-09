@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412014454) do
+ActiveRecord::Schema.define(version: 20180609055651) do
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 20180412014454) do
     t.text "content"
     t.integer "running_time"
     t.integer "user_id"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.integer "default_time", default: 25
+    t.boolean "linked_tweet", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|
