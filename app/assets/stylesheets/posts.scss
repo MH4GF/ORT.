@@ -85,11 +85,12 @@ body {
   h3 {
     margin-top: 15px;
   }
+}
 
-  .sidebar-links {
-    display: block;
-    margin-top: 20px;
-  }
+.sidebar-links {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .user-info-item {
@@ -594,13 +595,14 @@ header {
   margin-bottom: 10px;
   border-bottom: 1px solid #f4f4f4;
 
-  #select_time {
-    padding: 10px;
-    border: none;
-  }
   p {
     margin-left: 10px;
   }
+}
+
+#select_time {
+  padding: 10px;
+  border: none;
 }
 
 .form-title {
@@ -873,7 +875,6 @@ header {
 
 .googleform {
   background: #000;
-  width: 300px;
   text-align: center;
 
   a {

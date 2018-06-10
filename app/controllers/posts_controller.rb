@@ -18,8 +18,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @default_time = current_user.setting.default_time
-    @linked_tweet = current_user.setting.linked_tweet
+    @default_time = current_user.default_time
+    @allow_linked_tweet = current_user.allow_linked_tweet
   end
 
   def tweet

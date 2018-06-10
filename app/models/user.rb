@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :posts, :dependent => :delete_all
 
+  validates :default_time, numericality: {:less_than_or_equal_to => 99}
+
   def self.find_for_oauth(auth)
    user = User.where(uid: auth.uid, provider: auth.provider).first
 

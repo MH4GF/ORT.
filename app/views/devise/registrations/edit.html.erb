@@ -1,43 +1,47 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="main post-new">
+  <%= render partial: 'sidebar' %>
+  <div class="container">
+    <h2>環境設定</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for @user, :url => {:action => 'update'}, :html => {:class => 'form'} do |f| %>
+      <div class="form-body">
+        <div class="field">
+          <%= f.label :タイマーの選択時間 %>
+          <%= f.select :default_time, [["5", "5"],
+                                      ["10", "10"],
+                                      ["15", "15"],
+                                      ["20", "20"],
+                                      ["25", "25"],
+                                      ["30", "30"],
+                                      ["35", "35"],
+                                      ["40", "40"],
+                                      ["45", "45"],
+                                      ["50", "50"],
+                                      ["55", "55"]],{},
+                                      { :name => "default_time",
+                                        :id => "select_time"} %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="field">
+          <div>
+            <%= f.label :投稿時のツイート連携を選択された状態にする %><br />
+            <i>(新規投稿画面でもオンオフができます)</i>
+          </div>
+          <div class="form_submit">
+            <div class="switchArea" style="margin: 0;">
+              <%= f.check_box :allow_linked_tweet, {:checked => @user.allow_linked_tweet, :name => "allow_linked_tweet", :id => "switch1"} %>
+              <label for="switch1"><span></span></label>
+              <div class="swImg"></div>
+            </div>
+          </div>
+        </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <div class="actions">
+          <%= f.submit "更新" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+        <div class="link-to-leave"><%= link_to("ORTを退会する","/contact") %></div>
+      </div>
     <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

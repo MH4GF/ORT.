@@ -6,7 +6,8 @@ Rails.application.routes.draw do
       delete '/users/destroy' => 'devise/registrations#destroy'
     end
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
+                                    registrations: 'users/registrations' }
 
   get "posts/about" => "posts#about"
   get "posts/new" => "posts#new"

@@ -32,10 +32,11 @@
       <% end %>
 
     <% end %>
-
-    <%= link_to("お問い合わせ", "/contact", class: "sidebar-links" ) %>
-    <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "sidebar-links" ) %>
-
+    <div class="sidebar-links">
+      <%= link_to("環境設定", "/users/edit") %>
+      <%= link_to("お問い合わせ", "/contact") %>
+      <%= link_to("ログアウト", destroy_user_session_path, method: :delete) %>
+    </div>
   </div>
 
   <!-- 広告 -->
