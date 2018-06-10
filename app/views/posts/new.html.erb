@@ -25,8 +25,8 @@
                     ["45分", "45"],
                     ["50分", "50"],
                     ["55分", "55"]],
-
-                    {:selected => "25"},
+                    # ユーザーの設定でdefault_timeを変えられる 初期値は25
+                    {:selected => "#{@default_time}"},
 
                     {:name => "minutes",
                      :class => "pomodoro-minutes",
@@ -91,7 +91,11 @@
           <div class="form_submit">
             <i class="fab fa-twitter"></i>
             <div class="switchArea">
+            <% if @linked_tweet == true %>
               <input type="checkbox" id="switch1" name="tweet_toggle" value="true" checked>
+            <% else %>
+            <input type="checkbox" id="switch1" name="tweet_toggle" value="true">
+            <% end %>
               <label for="switch1"><span></span></label>
               <div class="swImg"></div>
             </div>
