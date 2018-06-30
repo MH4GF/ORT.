@@ -1,7 +1,5 @@
 class TagsController < ApplicationController
 
-before_action :move_to_about
-
 def index
 end
 

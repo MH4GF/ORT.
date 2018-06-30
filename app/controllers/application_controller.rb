@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # CSRF対策
   protect_from_forgery with: :exception
 
-  before_action :posts,:tags
+  before_action :posts, :tags, :move_to_about
 
   def posts
     if current_user === nil
@@ -40,9 +40,9 @@ class ApplicationController < ActionController::Base
 
   # ログインしていない場合はaboutへリダイレクト
   def move_to_about
-    unless user_signed_in? then
+    unless user_signed_in?
       flash[:notice] = "ログインして、学習を始めよう！"
-      redirect_to controller: 'posts', action: 'about'
+      redirect_to controller: 'docs', action: 'about'
     end
   end
 
