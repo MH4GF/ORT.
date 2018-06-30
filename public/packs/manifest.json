@@ -1,0 +1,22 @@
+{
+  "application.css": "/packs/application-9cb5a7334a6577c3422968b9b9970b2f.css",
+  "application.css.map": "/packs/application-9cb5a7334a6577c3422968b9b9970b2f.css.map",
+  "application.js": "/packs/application-e87156419975f02d9f53.js",
+  "application.js.map": "/packs/application-e87156419975f02d9f53.js.map",
+  "components/Body.css": "/packs/components/Body-4f70e4a16822c4b2ae0c2ebdceb853b5.css",
+  "components/Body.css.map": "/packs/components/Body-4f70e4a16822c4b2ae0c2ebdceb853b5.css.map",
+  "components/Body.js": "/packs/components/Body-2eaf820bde695b6ee415.js",
+  "components/Body.js.map": "/packs/components/Body-2eaf820bde695b6ee415.js.map",
+  "components/daysCounter.css": "/packs/components/daysCounter-3dba0913de344433af627ea2bc2e46d3.css",
+  "components/daysCounter.css.map": "/packs/components/daysCounter-3dba0913de344433af627ea2bc2e46d3.css.map",
+  "components/daysCounter.js": "/packs/components/daysCounter-aea88e187316114af02c.js",
+  "components/daysCounter.js.map": "/packs/components/daysCounter-aea88e187316114af02c.js.map",
+  "hello_vue.css": "/packs/hello_vue-9cb5a7334a6577c3422968b9b9970b2f.css",
+  "hello_vue.css.map": "/packs/hello_vue-9cb5a7334a6577c3422968b9b9970b2f.css.map",
+  "hello_vue.js": "/packs/hello_vue-e2299c431d9552696dbd.js",
+  "hello_vue.js.map": "/packs/hello_vue-e2299c431d9552696dbd.js.map",
+  "loginBonus.css": "/packs/loginBonus-4f70e4a16822c4b2ae0c2ebdceb853b5.css",
+  "loginBonus.css.map": "/packs/loginBonus-4f70e4a16822c4b2ae0c2ebdceb853b5.css.map",
+  "loginBonus.js": "/packs/loginBonus-38443c9d34fe2b680dd8.js",
+  "loginBonus.js.map": "/packs/loginBonus-38443c9d34fe2b680dd8.js.map"
+}

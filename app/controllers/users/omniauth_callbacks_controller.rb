@@ -27,7 +27,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
-
+  
+  skip_before_action :move_to_about
+  
   def facebook
     callback_from :facebook
   end

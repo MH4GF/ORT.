@@ -1,20 +1,5 @@
 class PostsController < ApplicationController
 
-  # ログインしていない場合はaboutにリダイレクト
-  # FIXME この４つのメソッドを別のコントローラに分離して、ApplicationControllerでbefore_actionしたい
-  before_action :move_to_about, except: [:about, :contact, :terms, :privacy]
-
-
-  def about
-  end
-
-  # def index
-  #   @posts = Post.includes(:user).order(created_at: :desc)
-  # end
-
-  # def show
-  #   @post = Post.find_by(id: params[:id])
-  # end
 
   def new
     @post = Post.new
@@ -104,15 +89,6 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = "投稿を削除しました"
     redirect_to("/users/mypage")
-  end
-
-  def contact
-  end
-
-  def terms
-  end
-
-  def privacy
   end
 
 private
