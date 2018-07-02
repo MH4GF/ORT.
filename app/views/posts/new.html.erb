@@ -13,21 +13,8 @@
 
         <%= select :pomodoro,
                    :min,
-                   [["1分", "1"],
-                    ["5分", "5"],
-                    ["10分", "10"],
-                    ["15分", "15"],
-                    ["20分", "20"],
-                    ["25分", "25"],
-                    ["30分", "30"],
-                    ["35分", "35"],
-                    ["40分", "40"],
-                    ["45分", "45"],
-                    ["50分", "50"],
-                    ["55分", "55"]],
-                    # ユーザーの設定でdefault_timeを変えられる 初期値は25
-                    {:selected => "#{@default_time}"},
-
+                    mins_array, #ヘルパーメソッド keyとvalueの配列
+                    {:selected => "#{@default_time}"}, # ユーザーの設定でdefault_timeを変えられる 初期値は25
                     {:name => "minutes",
                      :class => "pomodoro-minutes",
                      :id => "min"}  %>
@@ -59,20 +46,10 @@
           <div class="select-menu">
             <h2 class="form-title">Time</h2>
             <%= select :running_time,
-                       :min, [["5", "5"],
-                              ["10", "10"],
-                              ["15", "15"],
-                              ["20", "20"],
-                              ["25", "25"],
-                              ["30", "30"],
-                              ["35", "35"],
-                              ["40", "40"],
-                              ["45", "45"],
-                              ["50", "50"],
-                              ["55", "55"]], {},
-
-                             {:name => "running_time",
-                              :id => "select_time"} %>
+                       :min, 
+                        mins_array, 
+                        {},
+                        {:name => "running_time", :id => "select_time"} %>
 
             <p>分</p>
           </div>
