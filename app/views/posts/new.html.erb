@@ -1,3 +1,4 @@
+# TODO: モーダルはpartialに
 <!-- modal -->
   <div class="timer-wrapper <%= @display_none %>" id="timer-modal">
   <div class="timer-container">
@@ -35,6 +36,7 @@
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
 
+    # TODO: form_withに 
     <%= form_tag "/posts/create" do %>
       <div class="form">
         <div class="form-body">
