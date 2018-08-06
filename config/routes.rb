@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy"
 
   get "tags/:id" => "tags#show"
-  get "tags/:id/new" => "posts#new"
 
   get "users/mypage" => "users#show", as: "user_root"
 
