@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @default_time = current_user.default_time
+    @default_time       = current_user.default_time
     @allow_linked_tweet = current_user.allow_linked_tweet
   end
 
@@ -21,8 +21,8 @@ class PostsController < ApplicationController
 
   # ツイート内容
   def tweet_contents
-    return params[:content] +
-           "【" + params[:running_time] + "分】" +
+    return create_params[:content] +
+           "【" + create_params[:running_time] + "分】" +
            "#インターネット勉強班 @ORT_pomodoro"
   end
 
@@ -33,8 +33,6 @@ class PostsController < ApplicationController
                      tag_list:     create_params[:tag_list],
                      user_id:      current_user.id)
 
-
-    # 投稿が保存できたかどうかで条件分岐
     if @post.save
       flash[:notice] = "投稿を作成しました。5分休憩しましょう！"
 
@@ -71,9 +69,9 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
 
-    @post.content = params[:content]
-    @post.running_time = params[:running_time]
-    @post.tag_list = params[:tag_list]
+    @post.content       = create_params[:content]
+    @post.running_time  = create_params[:running_time]
+    @post.tag_list      = create_params[:tag_list]
 
     # 投稿が保存できたかどうかで条件分岐
     if @post.save
@@ -94,6 +92,6 @@ class PostsController < ApplicationController
 private
   # ストロングパラメーター
   def create_params
-    params.permit(:content, :running_time, :tag_list)
+    params.require(:post).permit(:content, :running_time, :tag_list)
   end
 end

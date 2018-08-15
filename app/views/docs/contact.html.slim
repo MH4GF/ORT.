@@ -1,0 +1,15 @@
+- if user_signed_in?
+  .user-info style="display:none"
+    = render partial: 'userinfo'
+.main-static
+  .main.terms-wrap
+    .terms
+      h1 お問い合わせ
+      p ORT.についてのご意見、ご要望、不具合のお問い合わせなどがございましたら、下記のリンクのフォームより必要事項を記入し、送信ボタンをクリックしてください。
+      .about-btn.googleform
+        = link_to "問い合わせページへ（Googleフォームへ）", "https://goo.gl/forms/5OQh18mcoxG77BdT2"
+      - if user_signed_in?
+        p 
+          | 退会をご希望の方は、
+          = link_to "こちら", users_destroy_path, method: :delete, data: { confirm: '投稿などのユーザーデータは削除され、復元することができなくなります。よろしいですか？'}
+          | より退会処理をおこなうことができます。
