@@ -14,10 +14,16 @@ gem 'twitter'
 gem 'dotenv-rails'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'master'
 gem 'jquery-turbolinks'
+gem 'slim-rails'
+gem 'html2slim'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'guard-livereload', require: false
+  gem 'rubocop'
+  gem 'guard-rubocop'
+  gem 'terminal-notifier-guard'
 end
 
 group :development do
