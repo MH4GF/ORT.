@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root "docs#about"
+  get "users/mypage" => "users#show", as: "user_root"
 
   get 'about'    => "docs#about"
   get 'contact'  => "docs#contact"
@@ -16,14 +17,7 @@ Rails.application.routes.draw do
                                     registrations:      'users/registrations' 
                                   }
 
-  get "posts/new" => "posts#new"
-  post "posts/create" => "posts#create"
-  get "posts/:id/edit" => "posts#edit"
-  post "posts/:id/update" => "posts#update"
-  post "posts/:id/destroy" => "posts#destroy"
-
-  get "tags/:id" => "tags#show"
-
-  get "users/mypage" => "users#show", as: "user_root"
-
+  resources :posts, only: [:new, :edit, :create, :update, :destroy]
+  resources :tags,  only: [:show]
+  
 end
