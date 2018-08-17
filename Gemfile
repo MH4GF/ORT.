@@ -24,6 +24,9 @@ group :development, :test do
   gem 'rubocop'
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'capybara'
 end
 
 group :development do
@@ -31,6 +34,7 @@ group :development do
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'spring-commands-rspec'
 end
 
 gem 'pg', '~> 0.19.0', group: :production

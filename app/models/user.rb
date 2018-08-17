@@ -12,13 +12,13 @@ class User < ApplicationRecord
 
    unless user
      create! do |user|
-      user.provider = auth['provider']
-      user.uid = auth['uid']
-      user.name = auth['info']['nickname']
-      user.token = auth['credentials']['token']
-      user.secret = auth['credentials']['secret']
-      user.email = User.dummy_email(auth)
-      user.password = Devise.friendly_token[0, 20]
+      user.provider  = auth['provider']
+      user.uid       = auth['uid']
+      user.name      = auth['info']['nickname']
+      user.token     = auth['credentials']['token']
+      user.secret    = auth['credentials']['secret']
+      user.email     = User.dummy_email(auth)
+      user.password  = Devise.friendly_token[0, 20]
     end
    end
 
