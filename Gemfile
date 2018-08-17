@@ -26,6 +26,7 @@ group :development, :test do
   gem 'terminal-notifier-guard'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'capybara'
 end
 
 group :development do
