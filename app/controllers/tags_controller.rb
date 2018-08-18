@@ -1,15 +1,7 @@
 class TagsController < ApplicationController
-
-def index
-end
-
-def show
-  @id = ActsAsTaggableOn::Tag.find_by(id: params[:id])
-  @tagged_with_posts = current_user.posts.tagged_with(@id).order(created_at: :desc)
-  sum_running_time(@tagged_with_posts)
-  @tagged_with_posts_hour = @sum / 60
-  @tagged_with_posts_min = @sum % 60
-end
-
-
+  def show
+    @tag                = ActsAsTaggableOn::Tag.find_by(id: params[:id])
+    @tagged_with_posts  = current_user.posts.tagged_with(@tag).order(created_at: :desc)
+    @total_running_time = SumRunningTimeService.new(@tagged_with_posts).call
+  end
 end
