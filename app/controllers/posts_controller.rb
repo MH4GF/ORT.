@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       tweet if params[:tweet_toggle]
 
       if @post.tags.present?
-        redirect_to tag_path(tags.first.id)
+        redirect_to tag_path(@post.tags.first.id)
       else
         redirect_to user_root_path
       end
