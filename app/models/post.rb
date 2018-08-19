@@ -29,6 +29,11 @@ class Post < ApplicationRecord
 
   # ツイート内容
   def tweet_contents
-    "#{content} 【#{running_time}分】#インターネット勉強班 @ORT_pomodoro"
+    "#{content.truncate(110)} \n【#{running_time}分】#インターネット勉強班 @ORT_pomodoro #{show_path}"
+  end
+
+  def show_path
+    routes = Rails.application.routes.url_helpers
+    routes.url_for host: 'ort.herokuapp.com', controller: 'posts', action: 'show', id: id
   end
 end
