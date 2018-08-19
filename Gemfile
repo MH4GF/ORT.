@@ -14,10 +14,19 @@ gem 'twitter'
 gem 'dotenv-rails'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'master'
 gem 'jquery-turbolinks'
+gem 'slim-rails'
+gem 'html2slim'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
+  gem 'guard-livereload', require: false
+  gem 'rubocop'
+  gem 'guard-rubocop'
+  gem 'terminal-notifier-guard'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'capybara'
 end
 
 group :development do
@@ -25,6 +34,8 @@ group :development do
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'spring-commands-rspec'
+  gem 'annotate'
 end
 
 gem 'pg', '~> 0.19.0', group: :production

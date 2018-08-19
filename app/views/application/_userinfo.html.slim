@@ -1,0 +1,17 @@
+= link_to user_root_path
+  h2 #{current_user.name}
+.user-info-item
+  p.item-name 累計時間
+  p ：#{@total_running_time[:hour]}時間 #{@total_running_time[:min]}分
+.user-info-item
+  p.item-name 投稿
+  p ：#{@posts.count}件
+h3 タグ一覧
+- @having_tags.each do |tag|
+    = link_to tag_path(tag.id)
+      | #{tag.name} (#{tag.taggings_count})
+    br
+.sidebar-links
+  = link_to "環境設定", edit_user_registration_path
+  = link_to "お問い合わせ", contact_path
+  = link_to "ログアウト", destroy_user_session_path, method: :delete

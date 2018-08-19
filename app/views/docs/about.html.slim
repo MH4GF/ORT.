@@ -1,0 +1,46 @@
+- if user_signed_in?
+  .user-info style="display:none"
+    = render partial: 'userinfo'
+.main-wrap
+  .about-main
+    .mainvisual
+      h1
+        span ORT.
+        br Output,Review and Timer.
+      p.about-text
+        | ORT.(オルト)は、タイマーを使った効果的な集中と細かなアウトプットで、学習スピードの向上をサポートするサービスです。
+      .about-btn-wrap
+        .about-btn.about-continue
+          = link_to "ORT.(オルト)とは", "#how"
+        .about-btn.twitter-login
+          = link_to user_twitter_omniauth_authorize_path do
+            i.fab.fa-twitter
+            | Twitterアカウントでログイン
+      a.photo-credit[href="https://www.instagram.com/tomo622_/"]
+        | photo by @tomo622_
+  #how.about-howto
+    h2 How to Use
+    h4 ORT.(オルト)は、タイマーをセットして終わったら学習内容のメモを入力するだけのアプリです。それだけですが、あなたの学習スピードをメキメキと向上させます。
+  section.white-back
+    img.timer-img src="https://s3-ap-northeast-1.amazonaws.com/ort-production/images/system-images/timer.png"
+    .about-step
+      h2 1.タイマーを使って集中した時間を。
+      p ORT.は、ポモドーロ・テクニックという手法を採用しています。ポモドーロ・テクニックとはシンプルなメソッドで、「25分集中し、5分休憩」を繰り返すだけ。
+      p 25分は短いように思えますが、反復的に繰り返すことで大きな力を発揮します。2時間集中し続けることは大変ですが、適度に休憩を挟むことで集中力は大きく持続し、2時間なんてあっという間です。
+  section.gray-back
+    .about-step
+      h2 2.細かなアウトプットで学習内容の定着を速く
+      p アウトプットはインプットよりも重要です。ORT.では、1回のポモドーロが終わったところで学習内容をメモを取ることを推奨しています。
+      p 「25分では全然進まないよ！」と思うかもしれませんが、小さな進みでも、細かくアウトプットすることで自分が25分でどこまで作業できるのかが把握できます。
+      p また、ORT.ではツイート機能も同時に備えています。他の人にアウトプットを発信することでフィードバックをもらい改善に繋がったり、学習のモチベーション維持にも期待できます。
+    img.posts-img src="https://s3-ap-northeast-1.amazonaws.com/ort-production/images/system-images/posts.png"
+  section.white-back
+    .about-step.step-three
+      h2 3.振り返りが簡単に
+      p ORT.で続けて来た学習のメモは、一覧して表示することができます。またタグでのソート、累計時間の表示も可能です。
+      p こまめにアウトプットすることで、あなたの成長の過程を詳細に振り返ることができます。
+      h2.justnow 今すぐ始めてみませんか？
+      .about-btn.twitter-login[style="display:inline-block;"]
+        = link_to user_twitter_omniauth_authorize_path do
+          i.fab.fa-twitter
+          | Twitterアカウントでログイン

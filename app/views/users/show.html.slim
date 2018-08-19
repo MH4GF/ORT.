@@ -1,0 +1,29 @@
+.main.posts-index
+  = render partial: 'sidebar'
+  .container
+    - if @posts.blank?
+      .no-posts
+        h2
+          | 投稿がありません。
+          i.fas.fa-stopwatch
+          | を押して、学習を始めましょう！
+    - @posts.each do |post|
+      .posts-info
+        - post.tag_list.each do |tag|
+          - id = ActsAsTaggableOn::Tag.find_by(name: tag)
+          .tags
+            = link_to(tag, tag_path(id.id))
+        .running-time
+          p #{post.running_time}分
+      .posts-index-item
+        = simple_format(post.content)
+        .post-time
+          = post.created_at.strftime('%Y/%m/%d %T')
+        nav.post-submenus
+          ul
+            li
+              = link_to "投稿の編集", edit_post_path(post.id)
+            li
+              = link_to "投稿の削除", post_path(post.id), {method: "delete"}
+        .post-submenus-btn
+          i.fas.fa-angle-down
