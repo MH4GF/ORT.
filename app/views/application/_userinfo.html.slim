@@ -2,16 +2,14 @@
   h2 #{current_user.name}
 .user-info-item
   p.item-name 累計時間
-  p ：#{@posts_hour}時間 #{@posts_min}分
+  p ：#{@total_running_time[:hour]}時間 #{@total_running_time[:min]}分
 .user-info-item
   p.item-name 投稿
   p ：#{@posts.count}件
 h3 タグ一覧
-- @all_tags.each do |tag|
-  - @tags = current_user.posts.tagged_with(tag)
-  - unless @tags.count === 0 then
+- @having_tags.each do |tag|
     = link_to tag_path(tag.id)
-      | #{tag.name} (#{@tags.count})
+      | #{tag.name} (#{tag.taggings_count})
     br
 .sidebar-links
   = link_to "環境設定", edit_user_registration_path
