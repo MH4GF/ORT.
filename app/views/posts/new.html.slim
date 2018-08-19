@@ -28,7 +28,7 @@ div#timer-modal.timer-wrapper class="#{@display_none}"
               = message
           .select-menu
             h2.form-title Time
-            = f.select :running_time, mins_array, id: "select_time"
+            = f.select :running_time, mins_array, {}, { id: "select_time" }
             p 分
           .field
             h2.form-title Tags
