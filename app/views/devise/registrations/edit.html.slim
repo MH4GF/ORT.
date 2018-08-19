@@ -1,0 +1,23 @@
+.main.post-new
+  = render partial: 'sidebar'
+  .container
+    h2 環境設定
+    = form_for @user, url: { action: 'update' }, html: { class: 'form' } do |f|
+      .form-body
+        .field
+          = f.label :タイマーの選択時間
+          = f.select :default_time, mins_array, {}, { name: "default_time", id: "select_time" }
+        .field
+          div
+            p 投稿時のツイート連携を選択された状態にする</br>
+            | (新規投稿画面でもオンオフができます)
+          .form_submit
+            .switchArea style=("margin: 0;") 
+              = f.check_box :allow_linked_tweet, { checked: @user.allow_linked_tweet, name: "allow_linked_tweet", id: "user_switch" } 
+              = f.label :switch 
+                span
+              .swImg
+        .actions
+          = f.submit "更新"
+        .link-to-leave
+          = link_to "ORTを退会する", contact_path
