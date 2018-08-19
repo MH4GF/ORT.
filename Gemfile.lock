@@ -48,6 +48,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (2.7.4)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     arel (8.0.0)
     ast (2.4.0)
     bcrypt (3.1.12)
@@ -336,6 +339,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on!
+  annotate
   byebug (= 9.0.6)
   capybara
   coffee-rails (= 4.2.2)

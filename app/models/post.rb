@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id           :integer          not null, primary key
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  content      :text
+#  running_time :integer
+#  user_id      :integer
+#
+
 class Post < ApplicationRecord
   belongs_to :user
   validates :content, {presence: true}
