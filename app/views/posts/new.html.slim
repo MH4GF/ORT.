@@ -8,7 +8,7 @@ div#timer-modal.timer-wrapper class="#{@display_none}"
         i.fa.fa-times
     .timer-controls
       .controls
-        = select :pomodoro, :min, mins_array, {:selected => "#{@default_time}"}, {name: "minutes", class: "pomodoro-minutes", id: "min"}
+        = select :pomodoro, :min, mins_array, {:selected => "#{current_user.default_time}"}, {name: "minutes", class: "pomodoro-minutes", id: "min"}
         #set Set
       #timer.maintimer 00:00
       .controls
