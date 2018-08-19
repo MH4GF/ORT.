@@ -1,0 +1,23 @@
+.main.posts-new
+  .user-info style="display:none"
+    = render partial: 'userinfo'
+  .container
+    h1.form-heading
+      | 編集する
+    = form_with model: @post, url: { action: "update" }, local: true do |f|
+      .form
+        .form-body
+          - @post.errors.full_messages.each do |message|
+            .form-error
+              = message
+          .select-menu
+            h2.form-title Time
+            = f.select :running_time, mins_array, { selected: @post.running_time, name: "running_time", id: "select_time" }
+            p 分
+          .field
+            h2.form-title Tags
+            = f.text_field :tag_list, value: @post.tag_list, placeholder: "タグをカンマ区切りで入力"
+          h2.form-title Contents
+          = f.text_area :content, value: @post.content
+          .form_submit
+            = f.submit "編集"

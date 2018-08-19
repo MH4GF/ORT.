@@ -1,0 +1,48 @@
+div#timer-modal.timer-wrapper class="#{@display_none}"
+  .timer-container
+    .message-set
+      p 時間をセットしてください。
+    .timer-header
+      h2.form-title.timer-title Timer
+      .close-modal
+        i.fa.fa-times
+    .timer-controls
+      .controls
+        = select :pomodoro, :min, mins_array, {:selected => "#{current_user.default_time}"}, {name: "minutes", class: "pomodoro-minutes", id: "min"}
+        #set Set
+      #timer.maintimer 00:00
+      .controls
+        #reset Reset
+        #start Start
+
+.main.posts-new
+  .user-info style="display:none"
+    = render partial: 'userinfo'
+  .container
+    h1.form-heading 投稿する
+    = form_with model: @post, url: { action: "create" }, local: true do |f|
+      .form
+        .form-body
+          - @post.errors.full_messages.each do |message|
+            .form-error
+              = message
+          .select-menu
+            h2.form-title Time
+            = f.select :running_time, mins_array, {}, { id: "select_time" }
+            p 分
+          .field
+            h2.form-title Tags
+            = f.text_field :tag_list, value: @post.tag_list, placeholder: "タグをカンマ区切りで入力"
+          h2.form-title Contents
+          = f.text_area :content, value: @post.content
+          .form_submit
+            i.fab.fa-twitter
+            .switchArea
+              - if current_user.allow_linked_tweet
+                = check_box_tag :tweet_toggle, nil, true, id: "switch"
+              - else
+                = check_box_tag :tweet_toggle, nil, false, id: "switch"
+              = label_tag :switch
+                span
+              .swImg
+            = f.submit "投稿"

@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   before_action :move_to_about
-  
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -24,14 +24,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     @user = current_user
 
-    @user.default_time = params[:default_time]
-    @user.allow_linked_tweet = params[:allow_linked_tweet]
-    
-    if @user.save
+    if @user.update(setting_params)
       flash[:notice] = "設定を更新しました"
-      redirect_to("/users/mypage")
+      redirect_to user_root_path
     else
-      render("users/edit")
+      render :edit
     end
   end
 
@@ -79,4 +76,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     redirect_to("/")
   end
 
+  private
+
+  def setting_params
+    params.permit(:default_time, :allow_linked_tweet)
+  end
 end

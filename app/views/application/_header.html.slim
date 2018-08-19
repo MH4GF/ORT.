@@ -1,0 +1,27 @@
+header
+  .header-logo
+    - if user_signed_in?
+      = link_to "ORT.", user_root_path
+    - else
+      = link_to "ORT.", root_path
+  - if user_signed_in?
+    .header-start-icon
+      = link_to new_post_path
+        i.fas.fa-stopwatch
+  - if user_signed_in?
+    ul.header-menus
+      li
+        = link_to "投稿一覧", user_root_path
+      li
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+  - else
+    .login
+      = link_to user_twitter_omniauth_authorize_path do
+        i.fab.fa-twitter
+        | Twitterアカウントでログイン
+  - if user_signed_in?
+    #js__MenuBtn.sma-btn
+      i.fas.fa-bars
+- if flash[:notice]
+  .flash
+    = flash[:notice]

@@ -1,0 +1,22 @@
+Rails:
+  Enabled: true
+  
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# "Missing top-level class documentation comment."を無効
+Style/Documentation:
+  Enabled: false
+
+# "Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
+Style/StringLiterals:
+  Enabled: false
+
+# "Layout/TrailingBlankLines: Final newline missing."を無効
+Layout/TrailingBlankLines:
+  Enabled: false
+
+# "Style/WordArray: Use `%w` or `%W` for an array of words."を無効
+Style/WordArray:
+  Enabled: false
