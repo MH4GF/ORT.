@@ -477,6 +477,7 @@ header {
   margin-bottom: 10px;
   position: relative;
   padding: 20px 30px;
+  min-width: 300px;
 
   a {
     display: block;
@@ -548,6 +549,7 @@ header {
 }
 
 .posts-show-item {
+  min-width: 300px;
   padding: 30px;
   background-color: white;
   overflow: hidden;

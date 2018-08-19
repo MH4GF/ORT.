@@ -1,11 +1,15 @@
 .main.posts-show
   .container
-    .running-time
-      p #{@post.running_time}分
-    .posts-show-item
-      = simple_format(@post.content)
-      .post-time
-        = @post.created_at.strftime('%Y/%m/%d %T')
-      .post-menus
-        = link_to "編集", edit_post_path(@post.id)
-        = link_to "削除", post_path(@post.id), {method: "delete"}
+      .posts-info
+        - @post.tags.each do |tag|
+          .tags
+            = link_to tag.name, tag_path(tag.id)
+          .running-time
+            p #{@post.running_time}分
+      .posts-show-item
+        = simple_format(@post.content)
+        .post-time
+          = @post.created_at.strftime('%Y/%m/%d %T')
+        .post-menus
+          = link_to "編集", edit_post_path(@post.id)
+          = link_to "削除", post_path(@post.id), method: "delete"
