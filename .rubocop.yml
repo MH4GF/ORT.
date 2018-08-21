@@ -20,3 +20,11 @@ Layout/TrailingBlankLines:
 # "Style/WordArray: Use `%w` or `%W` for an array of words."を無効
 Style/WordArray:
   Enabled: false
+
+# Style/SymbolArray: Use `%i` or `%I` for an array of symbols.
+Style/SymbolArray:
+  Enabled: false
+
+# "Metrics/LineLength: Line is too long."を無効
+Metrics/LineLength:
+  Enabled: false
