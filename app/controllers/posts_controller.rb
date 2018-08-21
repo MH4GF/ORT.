@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  skip_before_action :move_to_about, only: [:show]
 
   def new
     @post = Post.new
@@ -23,6 +24,7 @@ class PostsController < ApplicationController
       end
 
     else
+      @timer_is_disabled = true
       render :new
     end
   end
