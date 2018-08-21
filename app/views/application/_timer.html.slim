@@ -1,0 +1,16 @@
+#timer-modal.timer-wrapper
+  .timer-container
+    .message-set
+      p 時間をセットしてください。
+    .timer-header
+      h2.form-title.timer-title Timer
+      .close-modal
+        i.fa.fa-times
+    .timer-controls
+      .controls
+        = select :pomodoro, :min, mins_array, {:selected => "#{current_user.default_time}"}, {name: "minutes", class: "pomodoro-minutes", id: "min"}
+        #set Set
+      #timer.maintimer 00:00
+      .controls
+        #reset Reset
+        #start Start

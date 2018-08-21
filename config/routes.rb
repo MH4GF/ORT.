@@ -34,7 +34,6 @@
 #                             tag GET      /tags/:id(.:format)                    tags#show
 
 Rails.application.routes.draw do
-
   root "docs#about"
   get "users/mypage" => "users#show", as: "user_root"
 
@@ -45,14 +44,15 @@ Rails.application.routes.draw do
 
   # 退会処理のルーティング
   devise_scope :user do
-      delete '/users/destroy' => 'devise/registrations#destroy'
-    end
+    delete '/users/destroy' => 'devise/registrations#destroy'
+  end
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
-                                    registrations:      'users/registrations' 
-                                  }
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations:      'users/registrations'
+  }
 
-  resources :posts, only: [:new, :edit, :create, :update, :destroy]
+  resources :posts, only: [:new, :show, :edit, :create, :update, :destroy]
   resources :tags,  only: [:show]
-  
+
 end
