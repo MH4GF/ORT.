@@ -17,17 +17,18 @@ class Post < ApplicationRecord
   acts_as_taggable
 
   def tweet
-    client = Twitter::REST::Client.new do |config|
+    twitter_client.update(tweet_contents)
+  end
+
+  def twitter_client
+    Twitter::REST::Client.new do |config|
       config.consumer_key         = ENV['TWITTER_CONSUMER_KEY']
       config.consumer_secret      = ENV['TWITTER_CONSUMER_SECRET']
       config.access_token         = user.token
       config.access_token_secret  = user.secret
     end
-    # Twitter投稿
-    client.update(tweet_contents)
   end
 
-  # ツイート内容
   def tweet_contents
     "#{content.truncate(70)} \n【#{running_time}分】#インターネット勉強班 #ORT #{show_path}"
   end
