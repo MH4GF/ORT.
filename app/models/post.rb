@@ -29,7 +29,7 @@ class Post < ApplicationRecord
 
   # ツイート内容
   def tweet_contents
-    "#{content.truncate(110)} \n【#{running_time}分】#インターネット勉強班 @ORT_pomodoro #{show_path}"
+    "#{content.truncate(70)} \n【#{running_time}分】#インターネット勉強班 #ORT #{show_path}"
   end
 
   def show_path
