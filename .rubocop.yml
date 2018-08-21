@@ -28,3 +28,11 @@ Style/SymbolArray:
 # "Metrics/LineLength: Line is too long."を無効
 Metrics/LineLength:
   Enabled: false
+
+# "Style/FrozenStringLiteralComment: Missing magic comment `# frozen_string_literal: true`."を無効
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# "Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style."をParentClass::ChildClass形式にする
+ClassAndModuleChildren:
+  EnforcedStyle: compact
