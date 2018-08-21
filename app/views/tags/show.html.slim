@@ -6,8 +6,8 @@
         h1.tags-title 
           = @tag
           span
-            = "#{@total_running_time[:hour]}時間" if @total_running_time[:hour] != 0
-            = "#{@total_running_time[:min]}分"
+            = "#{@tags_total_running_time[:hour]}時間" if @tags_total_running_time[:hour] != 0
+            = "#{@tags_total_running_time[:min]}分"
     - else
       h1.tags-title そのタグは存在しません
     - @tagged_with_posts.each do |post|
