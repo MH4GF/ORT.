@@ -21,18 +21,4 @@ html
     = render partial: 'header'
     = yield
     - unless controller.controller_name == 'posts' && controller.action_name == 'new'
-      footer
-        ul.footer-wrap
-          li
-            = link_to("このサイトについて", root_path)
-          li
-            = link_to("利用規約", terms_path)
-          li
-            = link_to("プライバシーポリシー", privacy_path)
-          li
-            = link_to("お問い合わせ", contact_path)
-          li
-            = link_to("公式Twitter","https://twitter.com/ort_pomodoro")
-        p
-          | ©︎2018 ORT.運営事務局 
-          = link_to "@gifu_w", "https://twitter.com/gifu_w"
+      = render 'shared/footer'

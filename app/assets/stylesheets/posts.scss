@@ -1013,3 +1013,19 @@ footer {
     display: none;
   }
 }
+
+.paginate-wrapper {
+    margin-top: 20px;
+}
+
+.pagination-item {
+    padding: 5px 10px;
+    background-color: black;
+    color: #ffffff;
+}
+
+.current-pagination-item {
+    background-color:#FFF46E ;
+    color: #000000;
+}
+
