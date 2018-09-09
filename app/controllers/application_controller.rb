@@ -6,9 +6,10 @@ class ApplicationController < ActionController::Base
   def user_info
     return unless user_signed_in?
 
-    @posts                = current_user.posts.order(created_at: :desc)
-    @total_running_time   = SumRunningTimeService.new(@posts).call
-    @having_tags          = @posts.tag_counts
+    # TODO: 変数名が重複するので一旦 @user_posts にする
+    @user_posts         = current_user.posts.order(created_at: :desc)
+    @total_running_time = SumRunningTimeService.new(@user_posts).call
+    @having_tags        = @user_posts.tag_counts
   end
 
   # ログインしていない場合はaboutへリダイレクト

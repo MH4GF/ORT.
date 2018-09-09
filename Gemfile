@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
+ruby '2.5.0'
 
-gem 'rails',        '5.1.4'
+gem 'rails',        '5.2.0'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.2.0'
@@ -16,6 +17,10 @@ gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'maste
 gem 'jquery-turbolinks'
 gem 'slim-rails'
 gem 'html2slim'
+gem 'faker'
+
+# ページネーション
+gem 'kaminari'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -27,6 +32,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'capybara'
+
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :development do
