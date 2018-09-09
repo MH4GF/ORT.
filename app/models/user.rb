@@ -29,31 +29,31 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  has_many :posts, :dependent => :delete_all
+  has_many :posts, dependent: :delete_all
 
-  validates :default_time, numericality: {:less_than_or_equal_to => 99}
+  validates :default_time, numericality: { less_than_or_equal_to: 99 }
 
   def self.find_for_oauth(auth)
-   user = User.where(uid: auth.uid, provider: auth.provider).first
+    user = User.find_by(uid: auth.uid, provider: auth.provider)
 
-   unless user
-     create! do |user|
-      user.provider  = auth['provider']
-      user.uid       = auth['uid']
-      user.name      = auth['info']['nickname']
-      user.token     = auth['credentials']['token']
-      user.secret    = auth['credentials']['secret']
-      user.email     = User.dummy_email(auth)
-      user.password  = Devise.friendly_token[0, 20]
+    unless user
+      user = User.create(
+        provider:  auth['provider'],
+        uid:       auth['uid'],
+        name:      auth['info']['nickname'],
+        token:     auth['credentials']['token'],
+        secret:    auth['credentials']['secret'],
+        email:     User.dummy_email(auth),
+        password:  Devise.friendly_token[0, 20]
+      )
     end
-   end
 
-   user
+    user
   end
 
   private
 
   def self.dummy_email(auth)
-   "#{auth.uid}-#{auth.provider}@example.com"
+    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end
