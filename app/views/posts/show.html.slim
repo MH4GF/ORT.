@@ -6,7 +6,7 @@
       .posts-info
         - @post.tags.each do |tag|
           .tags
-            = link_to tag.name, tag_path(tag.id)
+            = link_to tag.name, tag_path(tag)
         .running-time
           p #{@post.running_time}分
       .posts-show-item
@@ -15,5 +15,5 @@
           = @post.created_at.strftime('%Y/%m/%d %T')
         - if user_signed_in?
           .post-menus
-            = link_to "編集", edit_post_path(@post.id)
-            = link_to "削除", post_path(@post.id), method: "delete"
+            = link_to "編集", edit_post_path(@post)
+            = link_to "削除", post_path(@post), method: "delete"
