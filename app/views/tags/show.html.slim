@@ -11,20 +11,7 @@
     - else
       h1.tags-title そのタグは存在しません
     - @tagged_with_posts.each do |post|
-      .posts-info
-        - post.tags.each do |tag|
-          .tags
-            = link_to tag.name, tag_path(tag.id)
-        .running-time
-          p #{post.running_time}分
-      .posts-index-item
-        = simple_format(post.content)
-        .post-time
-          = post.created_at.strftime('%Y/%m/%d %T')
-        nav.post-submenus
-          ul
-            li = link_to "投稿の詳細", post_path(post.id)
-            li = link_to "投稿の編集", edit_post_path(post.id)
-            li = link_to "投稿の削除", post_path(post.id), method: "delete"
-        .post-submenus-btn
-          i.fas.fa-angle-down
+      = render 'shared/posts/item', post: post
+
+    .paginate-wrapper
+      = paginate @tagged_with_posts
