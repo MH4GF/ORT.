@@ -54,6 +54,7 @@ body {
   background-color: #2d3133;
   margin: 0;
   min-height: 1vh;
+  letter-spacing: .02em;
 }
 
 .main {
@@ -103,8 +104,6 @@ body {
 .container {
   max-width: 700px;
   margin: 60px 15px;
-  padding-left: 15px;
-  padding-right: 15px;
   clear: both;
 }
 
@@ -550,7 +549,7 @@ header {
 
 .posts-show-item {
   min-width: 300px;
-  padding: 30px;
+  padding: 15px;
   background-color: white;
   overflow: hidden;
   img {
@@ -562,7 +561,7 @@ header {
     object-fit: cover;
   }
   p {
-    font-size: 24px;
+    font-size: 15px;
     margin: 20px 0;
   }
 }
@@ -586,7 +585,10 @@ header {
     font-size: 14px;
   }
   input { @include post-menus }
-  a { @include post-menus }
+  a {
+    margin: 5px;
+    @include post-menus
+  }
 }
 
 /* posts/new ================================ */
