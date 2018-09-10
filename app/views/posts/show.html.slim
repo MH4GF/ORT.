@@ -7,8 +7,8 @@
         - @post.tags.each do |tag|
           .tags
             = link_to tag.name, tag_path(tag.id)
-          .running-time
-            p #{@post.running_time}分
+        .running-time
+          p #{@post.running_time}分
       .posts-show-item
         = simple_format(@post.content)
         .post-time
