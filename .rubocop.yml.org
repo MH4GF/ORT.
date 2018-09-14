@@ -1,0 +1,22 @@
+Rails:
+  Enabled: true
+  
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# "Missing top-level class documentation comment."を無効
+Style/Documentation:
+  Enabled: false
+
+# "Style/WordArray: Use `%w` or `%W` for an array of words."を無効
+Style/WordArray:
+  Enabled: false
+
+# Style/SymbolArray: Use `%i` or `%I` for an array of symbols.
+Style/SymbolArray:
+  Enabled: false
+
+# "Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style."をParentClass::ChildClass形式にする
+ClassAndModuleChildren:
+  EnforcedStyle: compact
