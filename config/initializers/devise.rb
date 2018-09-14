@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-   config.secret_key = 'b7a893320a71a980d674f43ea10e1b2014e8517cec9ff8fa6c0aee64040389a2911902e8ce56b91454089b39149bbab93f445ffa8e02cebf821a6fc2b12ae4a7'
+  config.secret_key = 'b7a893320a71a980d674f43ea10e1b2014e8517cec9ff8fa6c0aee64040389a2911902e8ce56b91454089b39149bbab93f445ffa8e02cebf821a6fc2b12ae4a7'
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -256,7 +256,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  
+
   # heroku側の環境変数も追加する！！
   config.omniauth :twitter, ENV['TWITTER_CONSUMER_KEY'], ENV['TWITTER_CONSUMER_SECRET'], callback_url: ENV['TWITTER_API_CALLBACK_URL']
   # ==> Warden configuration

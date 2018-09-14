@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -30,6 +32,6 @@ FactoryBot.define do
     password  'password'
     uid       '123'
     provider  'twitter'
-    name      'anonymous' 
+    name      'anonymous'
   end
 end

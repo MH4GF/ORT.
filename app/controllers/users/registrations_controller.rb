@@ -25,10 +25,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = current_user
 
     if @user.update(setting_params)
-      flash[:notice] = "設定を更新しました"
+      flash[:notice] = '設定を更新しました'
       redirect_to user_root_path
     else
-      render :edit
+      render 'edit'
     end
   end
 
@@ -72,8 +72,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def destroy
     @user = User.find_by(id: current_user.id)
     @user.destroy
-    flash[:notice] = "退会が完了しました。ご利用いただき、誠にありがとうございました。"
-    redirect_to("/")
+    flash[:notice] = '退会が完了しました。ご利用いただき、誠にありがとうございました。'
+    redirect_to root_path
   end
 
   private

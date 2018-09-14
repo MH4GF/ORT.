@@ -1,20 +1,40 @@
+inherit_from: .rubocop_todo.yml
+inherit_gem:
+  rubocop-github:
+    - config/default.yml
+    - config/rails.yml
+
 Rails:
   Enabled: true
-  
+
+AllCops:
+  TargetRubyVersion: 2.5.0
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'config.ru'
+    - 'script/**/*'
+    - 'bundle_bin/*'
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'Guardfile'
+    - 'Rakefile'
+    - 'lib/tasks/**'
+
 # 日本語でのコメントを許可
 AsciiComments:
   Enabled: false
 
+# "Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style."をParentClass::ChildClass形式にする
+ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - 'app/channels/application_cable/connection.rb'
+    - 'app/channels/application_cable/channel.rb'
+    - 'config/application.rb'
+
 # "Missing top-level class documentation comment."を無効
 Style/Documentation:
-  Enabled: false
-
-# "Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
-Style/StringLiterals:
-  Enabled: false
-
-# "Layout/TrailingBlankLines: Final newline missing."を無効
-Layout/TrailingBlankLines:
   Enabled: false
 
 # "Style/WordArray: Use `%w` or `%W` for an array of words."を無効
@@ -25,14 +45,6 @@ Style/WordArray:
 Style/SymbolArray:
   Enabled: false
 
-# "Metrics/LineLength: Line is too long."を無効
-Metrics/LineLength:
-  Enabled: false
-
-# "Style/FrozenStringLiteralComment: Missing magic comment `# frozen_string_literal: true`."を無効
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-# "Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style."をParentClass::ChildClass形式にする
-ClassAndModuleChildren:
-  EnforcedStyle: compact
+# 文字列にはシングルクオートを使う
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
