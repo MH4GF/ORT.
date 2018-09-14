@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   # ログインしていない場合はaboutへリダイレクト
   def move_to_about
     return if user_signed_in?
+
     flash[:notice] = "ログインして、学習を始めよう！"
     redirect_to root_path
   end

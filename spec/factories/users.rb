@@ -30,6 +30,6 @@ FactoryBot.define do
     password  'password'
     uid       '123'
     provider  'twitter'
-    name      'anonymous' 
+    name      'anonymous'
   end
 end
