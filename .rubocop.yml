@@ -9,28 +9,12 @@ AsciiComments:
 Style/Documentation:
   Enabled: false
 
-# "Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
-Style/StringLiterals:
-  Enabled: false
-
-# "Layout/TrailingBlankLines: Final newline missing."を無効
-Layout/TrailingBlankLines:
-  Enabled: false
-
 # "Style/WordArray: Use `%w` or `%W` for an array of words."を無効
 Style/WordArray:
   Enabled: false
 
 # Style/SymbolArray: Use `%i` or `%I` for an array of symbols.
 Style/SymbolArray:
-  Enabled: false
-
-# "Metrics/LineLength: Line is too long."を無効
-Metrics/LineLength:
-  Enabled: false
-
-# "Style/FrozenStringLiteralComment: Missing magic comment `# frozen_string_literal: true`."を無効
-Style/FrozenStringLiteralComment:
   Enabled: false
 
 # "Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style."をParentClass::ChildClass形式にする
