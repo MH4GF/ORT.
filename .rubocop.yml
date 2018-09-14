@@ -1,5 +1,7 @@
 inherit_from: .rubocop_todo.yml
 
+Rails:
+  Enabled: true
 
 ### 自動生成されたファイルに対する警告は無視 ###
 

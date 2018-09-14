@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby '2.5.0'
 # TODO: バージョン指定の削除
-# TODO: JS系gemのWebpackerへの委譲
+# TODO: Webpackerへの委譲後、JS系gemの削除
 
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'master'
 gem 'coffee-rails', '4.2.2'

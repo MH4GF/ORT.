@@ -73,7 +73,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.find_by(id: current_user.id)
     @user.destroy
     flash[:notice] = '退会が完了しました。ご利用いただき、誠にありがとうございました。'
-    redirect_to('/')
+    redirect_to root_path
   end
 
   private
