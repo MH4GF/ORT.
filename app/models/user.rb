@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -34,24 +36,22 @@ class User < ApplicationRecord
   validates :default_time, numericality: { less_than_or_equal_to: 99 }
 
   def self.find_for_oauth(auth)
-    user = User.find_by(uid: auth.uid, provider: auth.provider)
+    User.find_by(uid: auth.uid, provider: auth.provider) || User.create_by(auth)
+  end
 
-    unless user
-      user = User.create(
-        provider:  auth['provider'],
-        uid:       auth['uid'],
-        name:      auth['info']['nickname'],
-        token:     auth['credentials']['token'],
-        secret:    auth['credentials']['secret'],
-        email:     User.dummy_email(auth),
-        password:  Devise.friendly_token[0, 20]
-      )
-    end
+  def self.create_by(auth)
+    user = User.create(
+      provider:  auth['provider'],
+      uid:       auth['uid'],
+      name:      auth['info']['nickname'],
+      token:     auth['credentials']['token'],
+      secret:    auth['credentials']['secret'],
+      email:     User.dummy_email(auth),
+      password:  Devise.friendly_token[0, 20]
+    )
 
     user
   end
-
-  private
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"

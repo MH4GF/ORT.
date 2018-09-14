@@ -1,1 +1,81 @@
 inherit_from: .rubocop_todo.yml
+
+
+### 自動生成されたファイルに対する警告は無視 ###
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Guardfile'
+    - 'db/schema.rb'
+    - 'lib/tasks/auto_annotate_models.rake'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'db/migrate/20180401035341_add_missing_indexes_on_taggings.acts_as_taggable_on_engine.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/**'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'db/migrate/**'
+
+Style/GuardClause:
+  Exclude:
+    - 'db/migrate/**'
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'Guardfile'
+    - 'config/spring.rb'
+
+Style/RedundantBegin:
+  Exclude:
+    - 'bin/yarn'
+
+Style/RegexpLiteral:
+  Exclude:
+    - 'Guardfile'
+
+Style/StderrPuts:
+  Exclude:
+    - 'bin/yarn'
+
+Style/StringLiteralsInInterpolation:
+  Exclude:
+    - 'bin/yarn'
+
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# "Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style."をParentClass::ChildClass形式にする
+ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - 'app/channels/application_cable/connection.rb'
+    - 'app/channels/application_cable/channel.rb'
+    - 'config/application.rb'
+
+# "Missing top-level class documentation comment."を無効
+Style/Documentation:
+  Enabled: false
+
+# "Style/WordArray: Use `%w` or `%W` for an array of words."を無効
+Style/WordArray:
+  Enabled: false
+
+# Style/SymbolArray: Use `%i` or `%I` for an array of symbols.
+Style/SymbolArray:
+  Enabled: false

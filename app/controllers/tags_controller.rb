@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TagsController < ApplicationController
   def show
     @tag = ActsAsTaggableOn::Tag.find_by(id: params[:id])

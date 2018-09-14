@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SumRunningTimeService
   def initialize(posts)
     @posts = posts

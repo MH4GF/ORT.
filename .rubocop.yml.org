@@ -20,3 +20,21 @@ Style/SymbolArray:
 # "Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style."をParentClass::ChildClass形式にする
 ClassAndModuleChildren:
   EnforcedStyle: compact
+
+### 自動生成されたファイルに対する警告は無視 ###
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Guardfile'
+    - 'db/schema.rb'
+    - 'lib/tasks/auto_annotate_models.rake'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'db/migrate/20180401035341_add_missing_indexes_on_taggings.acts_as_taggable_on_engine.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/20180401035336_acts_as_taggable_on_migration.acts_as_taggable_on_engine.rb'
+    - 'db/migrate/20180329143257_devise_create_users.rb'
+    - 'db/migrate/20180401035341_add_missing_indexes_on_taggings.acts_as_taggable_on_engine.rb'

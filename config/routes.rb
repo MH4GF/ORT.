@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Route Map
 #
 #                          Prefix Verb     URI Pattern                            Controller#Action
@@ -34,13 +36,13 @@
 #                             tag GET      /tags/:id(.:format)                    tags#show
 
 Rails.application.routes.draw do
-  root "docs#about"
-  get "users/mypage" => "users#show", as: "user_root"
+  root 'docs#about'
+  get 'users/mypage' => 'users#show', as: 'user_root'
 
-  get 'about'    => "docs#about"
-  get 'contact'  => "docs#contact"
-  get 'terms'    => "docs#terms"
-  get 'privacy'  => "docs#privacy"
+  get 'about'    => 'docs#about'
+  get 'contact'  => 'docs#contact'
+  get 'terms'    => 'docs#terms'
+  get 'privacy'  => 'docs#privacy'
 
   # 退会処理のルーティング
   devise_scope :user do

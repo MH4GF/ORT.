@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
   skip_before_action :move_to_about, only: [:show]
@@ -14,15 +16,9 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(posts_params)
 
     if @post.save
-      flash[:notice] = "投稿を作成しました。5分休憩しましょう！"
+      flash[:notice] = '投稿を作成しました。5分休憩しましょう！'
       tweet if params[:tweet_toggle]
-
-      if @post.tags.present?
-        redirect_to tag_path(@post.tags.first.id)
-      else
-        redirect_to user_root_path
-      end
-
+      redirect_to_path_with_tag
     else
       @timer_is_disabled = true
       render :new
@@ -31,7 +27,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(posts_params)
-      flash[:notice] = "投稿を編集しました"
+      flash[:notice] = '投稿を編集しました'
       redirect_to user_root_path
     else
       render :edit
@@ -40,7 +36,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:notice] = "投稿を削除しました"
+    flash[:notice] = '投稿を削除しました'
     redirect_to user_root_path
   end
 
@@ -57,6 +53,14 @@ class PostsController < ApplicationController
   # ツイートトグルが有効の場合ツイート
   def tweet
     @post.tweet
-    flash[:notice] = "投稿とツイートが完了しました。5分休憩しましょう！"
+    flash[:notice] = '投稿とツイートが完了しました。5分休憩しましょう！'
+  end
+
+  def redirect_to_path_with_tag
+    if @post.tags.present?
+      redirect_to tag_path(@post.tags.first.id)
+    else
+      redirect_to user_root_path
+    end
   end
 end
