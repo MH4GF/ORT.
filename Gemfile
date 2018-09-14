@@ -35,6 +35,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop'
+  gem 'rubocop-github'
   gem 'sqlite3', '1.3.13'
   gem 'terminal-notifier-guard'
 end

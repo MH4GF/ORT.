@@ -1,4 +1,8 @@
 inherit_from: .rubocop_todo.yml
+inherit_gem:
+  rubocop-github:
+    - config/default.yml
+    - config/rails.yml
 
 Rails:
   Enabled: true
@@ -8,16 +12,14 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
+    - 'config.ru'
     - 'script/**/*'
     - 'bundle_bin/*'
     - 'bin/*'
     - 'node_modules/**/*'
     - 'Guardfile'
-
-Metrics/BlockLength:
-  Exclude:
-    - 'lib/tasks/auto_annotate_models.rake'
-
+    - 'Rakefile'
+    - 'lib/tasks/**'
 
 # 日本語でのコメントを許可
 AsciiComments:
@@ -42,3 +44,7 @@ Style/WordArray:
 # Style/SymbolArray: Use `%i` or `%I` for an array of symbols.
 Style/SymbolArray:
   Enabled: false
+
+# 文字列にはシングルクオートを使う
+Style/StringLiterals:
+  EnforcedStyle: single_quotes

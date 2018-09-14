@@ -21,7 +21,7 @@ class PostsController < ApplicationController
       redirect_to_path_with_tag
     else
       @timer_is_disabled = true
-      render :new
+      render 'new'
     end
   end
 
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
       flash[:notice] = '投稿を編集しました'
       redirect_to user_root_path
     else
-      render :edit
+      render 'edit'
     end
   end
 

@@ -28,7 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash[:notice] = '設定を更新しました'
       redirect_to user_root_path
     else
-      render :edit
+      render 'edit'
     end
   end
 
