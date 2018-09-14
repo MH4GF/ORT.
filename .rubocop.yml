@@ -3,59 +3,20 @@ inherit_from: .rubocop_todo.yml
 Rails:
   Enabled: true
 
-### 自動生成されたファイルに対する警告は無視 ###
+AllCops:
+  TargetRubyVersion: 2.5.0
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bundle_bin/*'
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'Guardfile'
 
 Metrics/BlockLength:
   Exclude:
-    - 'Guardfile'
-    - 'db/schema.rb'
     - 'lib/tasks/auto_annotate_models.rake'
-
-Metrics/CyclomaticComplexity:
-  Exclude:
-    - 'db/migrate/20180401035341_add_missing_indexes_on_taggings.acts_as_taggable_on_engine.rb'
-
-Metrics/MethodLength:
-  Exclude:
-    - 'db/migrate/**'
-
-Metrics/PerceivedComplexity:
-  Exclude:
-    - 'db/migrate/**'
-
-Style/GuardClause:
-  Exclude:
-    - 'db/migrate/**'
-
-Style/MixinUsage:
-  Exclude:
-    - 'bin/setup'
-    - 'bin/update'
-
-Style/NumericLiterals:
-  Exclude:
-    - 'db/schema.rb'
-
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'Guardfile'
-    - 'config/spring.rb'
-
-Style/RedundantBegin:
-  Exclude:
-    - 'bin/yarn'
-
-Style/RegexpLiteral:
-  Exclude:
-    - 'Guardfile'
-
-Style/StderrPuts:
-  Exclude:
-    - 'bin/yarn'
-
-Style/StringLiteralsInInterpolation:
-  Exclude:
-    - 'bin/yarn'
 
 
 # 日本語でのコメントを許可
