@@ -42,11 +42,11 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'listen',                '3.1.5'
-  gem 'spring',                '2.0.2'
+  gem 'listen', '3.1.5'
+  gem 'spring', '2.0.2'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '2.0.1'
-  gem 'web-console',           '3.5.1'
+  gem 'web-console', '3.5.1'
 end
 
 gem 'pg', '~> 0.19.0', group: :production
