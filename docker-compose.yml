@@ -15,6 +15,9 @@ services:
     command: ./scripts/start.sh
     ports:
       - '3000:3000'
+    volumes:
+      - .:/var/www/app
+    working_dir: /var/www/app
     links:
       - db
     stdin_open: true
