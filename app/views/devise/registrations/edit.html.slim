@@ -5,6 +5,9 @@
     = form_for @user, url: { action: 'update' }, html: { class: 'form' } do |f|
       .form-body
         .field
+          = f.label :ユーザー名
+          = f.text_field :name, { name: "name" }
+        .field
           = f.label :タイマーの選択時間
           = f.select :default_time, mins_array, {}, { name: "default_time", id: "select_time" }
         .field

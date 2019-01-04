@@ -79,6 +79,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def setting_params
-    params.permit(:default_time, :allow_linked_tweet)
+    params.permit(:default_time, :allow_linked_tweet, :name)
   end
 end
