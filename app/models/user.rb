@@ -1,27 +1,33 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint(8)        not null, primary key
+#  allow_linked_tweet     :boolean          default(TRUE), not null
+#  current_sign_in_at     :datetime
+#  current_sign_in_ip     :string
+#  default_time           :integer          default(25)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  reset_password_token   :string
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0), not null
-#  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
+#  name                   :string
+#  provider               :string
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  secret                 :string
+#  sign_in_count          :integer          default(0), not null
+#  token                  :string
+#  uid                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  uid                    :string
-#  provider               :string
-#  name                   :string
-#  token                  :string
-#  secret                 :string
-#  default_time           :integer          default(25)
-#  allow_linked_tweet     :boolean          default(TRUE), not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
 class User < ApplicationRecord
@@ -34,24 +40,22 @@ class User < ApplicationRecord
   validates :default_time, numericality: { less_than_or_equal_to: 99 }
 
   def self.find_for_oauth(auth)
-    user = User.find_by(uid: auth.uid, provider: auth.provider)
+    User.find_by(uid: auth.uid, provider: auth.provider) || User.create_by(auth)
+  end
 
-    unless user
-      user = User.create(
-        provider:  auth['provider'],
-        uid:       auth['uid'],
-        name:      auth['info']['nickname'],
-        token:     auth['credentials']['token'],
-        secret:    auth['credentials']['secret'],
-        email:     User.dummy_email(auth),
-        password:  Devise.friendly_token[0, 20]
-      )
-    end
+  def self.create_by(auth)
+    user = User.create(
+      provider:  auth['provider'],
+      uid:       auth['uid'],
+      name:      auth['info']['nickname'],
+      token:     auth['credentials']['token'],
+      secret:    auth['credentials']['secret'],
+      email:     User.dummy_email(auth),
+      password:  Devise.friendly_token[0, 20]
+    )
 
     user
   end
-
-  private
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SumRunningTimeService
   def initialize(posts)
     @posts = posts
@@ -5,9 +7,9 @@ class SumRunningTimeService
 
   def call
     total_running_time = {
-        total_min:  sum_all_running_time,
-        hour:       calc_hour,
-        min:        calc_min
+      total_min:  sum_all_running_time,
+      hour:       calc_hour,
+      min:        calc_min
     }
 
     total_running_time
