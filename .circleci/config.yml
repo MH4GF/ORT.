@@ -15,6 +15,9 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/postgres:10.1
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: VHgpFjfP2G
 
     working_directory: ~/repo
 
@@ -39,10 +42,12 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
         
       # Database setup
-      - run: rm ./config/database.yml
-      - run: mv ./config/database.yml.ci ./config/database.yml
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      - run:
+        name: Database Setup
+        command: |
+          bundle exec rake db:create bundle exec rake db:schema:load
+        environment:
+          DATABASE_URL: "postgres://ubuntu@localhost:5432/db"
 
       # run tests!
       - run:

@@ -1,8 +1,0 @@
-test: &default
-  adapter: postgresql
-  encoding: utf8
-  pool: 5
-  username: postgres
-  password: VHgpFjfP2G
-  host: db
-  database: ort_database
