@@ -1,8 +1,8 @@
 test: &default
   adapter: postgresql
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
   username: postgres
   password: VHgpFjfP2G
-  host: <%= ENV.fetch("POSTGRES_HOST") %>
+  host: db
   database: ort_database
