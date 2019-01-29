@@ -10,6 +10,8 @@ Output,Review and Timer.
 ```
 git clone https://github.com/MH4GF/ORT..git
 docker-compose up --build
+docker-compose run web rails db:create
+docker-compose run web rails db:migrate
 
 # access to http://127.0.0.1:3000
 ```
