@@ -5,7 +5,7 @@ ruby '2.5.0'
 # TODO: バージョン指定の削除
 # TODO: Webpackerへの委譲後、JS系gemの削除
 
-gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'master'
+gem 'acts-as-taggable-on'
 gem 'coffee-rails', '4.2.2'
 gem 'devise'
 gem 'dotenv-rails'
@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-github'
+  gem 'rubocop-rspec'
   gem 'terminal-notifier-guard'
 end
 
