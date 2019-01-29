@@ -14,7 +14,7 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       - image: circleci/postgres:10.1
         environment:
-          - "POSTGRES_DB=db"
+          - "POSTGRES_HOST=db"
           - "POSTGRES_USER=postgres"
           - "POSTGRES_PASSWORD=VHgpFjfP2G"
 
@@ -41,6 +41,8 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
         
       # Database setup
+      - run: rm ./config/database.yml
+      - run: mv ./config/database.yml.ci ./config/database.yml
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
