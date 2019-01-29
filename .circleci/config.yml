@@ -60,6 +60,8 @@ jobs:
                             --out /tmp/test-results/rspec.xml \
                             --format progress \
                             $TEST_FILES
+          environment:
+            DATABASE_URL: "postgres://postgres@localhost:5432/db"
 
       # collect reports
       - store_test_results:
