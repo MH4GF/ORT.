@@ -12,13 +12,13 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'kaminari'
 gem 'omniauth-twitter'
+gem 'pg'
 gem 'puma'
 gem 'rails'
 gem 'rails-i18n'
 gem 'sass-rails'
 gem 'slim-rails'
 gem 'twitter'
-gem 'pg'
 
 group :development, :test do
   gem 'byebug', platform: :mri
