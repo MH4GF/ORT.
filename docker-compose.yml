@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   db:
     image: postgres:10.1
@@ -16,9 +16,14 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - .:/var/www/app
-    working_dir: /var/www/app
+      - .:/app
+      - bundle_install:/usr/local/bundle
+    working_dir: /app
     links:
       - db
     stdin_open: true
     tty: true
+
+volumes:
+  bundle_install:
+    driver: local

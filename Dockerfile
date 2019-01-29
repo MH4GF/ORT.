@@ -1,6 +1,6 @@
 FROM ruby:2.5.0
 
-ENV APP_ROOT /var/www/app/
+ENV APP_ROOT /app
 WORKDIR $APP_ROOT
 
 RUN apt-get update -qq \
