@@ -32,10 +32,13 @@
 
 FactoryBot.define do
   factory :user do
-    email     'test@example.com'
-    password  'password'
-    uid       '123'
-    provider  'twitter'
-    name      'anonymous'
+    email     { 'test@example.com' }
+    password  { 'password' }
+    uid       { '123' }
+    provider  { 'twitter' }
+    name      { 'anonymous' }
+    after(:build) do |user|
+      create(:post, user: user)
+    end
   end
 end
