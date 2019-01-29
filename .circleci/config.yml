@@ -63,9 +63,11 @@ jobs:
           environment:
             DATABASE_URL: "postgres://postgres@localhost:5432/db"
 
+      # Rubocop Check
+      - run:
+          name: RuboCop Style Check
+          command: bundle exec rubocop
+
       # collect reports
       - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+          path: /test-results
