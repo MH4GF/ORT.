@@ -47,7 +47,7 @@ jobs:
           command: |
             bundle exec rake db:create bundle exec rake db:schema:load
           environment:
-            DATABASE_URL: "postgres://ubuntu@localhost:5432/db"
+            DATABASE_URL: "postgres://postgres@localhost:5432/db"
 
       # run tests!
       - run:
