@@ -2,35 +2,28 @@
 
 source 'https://rubygems.org'
 ruby '2.5.0'
-# TODO: バージョン指定の削除
 # TODO: Webpackerへの委譲後、JS系gemの削除
 
 gem 'acts-as-taggable-on'
-gem 'coffee-rails', '4.2.2'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'html2slim'
-gem 'jbuilder', '2.7.0'
-gem 'jquery-rails', '4.3.1'
+gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'kaminari'
 gem 'omniauth-twitter'
-gem 'puma', '3.9.1'
-gem 'rails', '5.2.0'
+gem 'puma'
+gem 'rails'
 gem 'rails-i18n'
-gem 'sass-rails', '5.0.6'
+gem 'sass-rails'
 gem 'slim-rails'
 gem 'twitter'
-gem 'uglifier', '3.2.0'
 gem 'pg'
 
 group :development, :test do
-  gem 'byebug', '9.0.6', platform: :mri
+  gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'guard-livereload', require: false
-  gem 'guard-rubocop'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
@@ -43,9 +36,9 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'listen', '3.1.5'
-  gem 'spring', '2.0.2'
+  gem 'listen'
+  gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'spring-watcher-listen', '2.0.1'
-  gem 'web-console', '3.5.1'
+  gem 'spring-watcher-listen'
+  gem 'web-console'
 end

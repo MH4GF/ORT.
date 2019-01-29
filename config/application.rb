@@ -19,6 +19,7 @@ module ORT
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
     config.generators do |g|
+      g.javascripts false
       g.test_framework :rspec,
       fixtures:       false,
       view_specs:     false,
