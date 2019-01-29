@@ -8,6 +8,9 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.5.0-node-browsers
+        environment:
+          - PGHOST: db
+          - PGUSER: postgres
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
