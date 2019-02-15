@@ -2,12 +2,6 @@ doctype html
 html
   head
     title ORT. -ポモドーロテクニックを使った学習記録アプリ-
-    script async src="https://www.googletagmanager.com/gtag/js?id=UA-117991188-1"
-    script
-      | window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-117991188-1'); 
-    script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-    script
-      | (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-8225452416450531", enable_page_level_ads: true, overlays: {bottom: true} }); 
     link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous"
     script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"
     script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"
@@ -15,6 +9,7 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = favicon_link_tag('favicon.ico')
+    = analytics_init if Rails.env.production?
     meta name="google-site-verification" content="WL2zFS_nt7PiJkGqU48r6ZPn5acS8u-QwPlA6jvAX3o"
     meta name="viewport" content="width=device-width,initial-scale=1"
   body
