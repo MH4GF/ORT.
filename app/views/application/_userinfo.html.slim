@@ -2,12 +2,12 @@
   h2 #{current_user.name}
 .user-info-item
   p.item-name 累計時間
-  p ：#{@total_running_time[:hour]}時間 #{@total_running_time[:min]}分
+  p ：#{current_user.total_running_time['hour']}時間 #{current_user.total_running_time['min']}分
 .user-info-item
   p.item-name 投稿
-  p ：#{@user_posts.count}件
+  p ：#{current_user.posts.size}件
 h3 タグ一覧
-- @having_tags.each do |tag|
+- current_user.posts.tag_counts.each do |tag|
     = link_to tag_path(tag)
       | #{tag.name} (#{tag.taggings_count})
     br

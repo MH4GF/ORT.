@@ -60,4 +60,16 @@ class User < ApplicationRecord
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
   end
+
+  def total_running_time
+    running_time = REDIS.hgetall("#{self.id}-running-time")
+    running_time.presence || set_total_running_time_to_redis
+  end
+
+  def set_total_running_time_to_redis
+    running_time = SumRunningTimeService.new(posts).call
+    REDIS.mapped_hmset("#{self.id}-running-time", running_time)
+
+    running_time
+  end
 end

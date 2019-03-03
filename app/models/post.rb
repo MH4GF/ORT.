@@ -17,6 +17,8 @@ class Post < ApplicationRecord
 
   acts_as_taggable
 
+  before_save :update_user_total_running_time
+
   def tweet
     client = Twitter::REST::Client.new do |config|
       config.consumer_key         = ENV['TWITTER_CONSUMER_KEY']
@@ -36,5 +38,9 @@ class Post < ApplicationRecord
   def show_path
     routes = Rails.application.routes.url_helpers
     routes.url_for host: 'ort.herokuapp.com', controller: 'posts', action: 'show', id: id
+  end
+
+  def update_user_total_running_time
+    user.set_total_running_time_to_redis
   end
 end
