@@ -15,3 +15,6 @@ ADD Gemfile.lock $APP_ROOT
 RUN bundle install
 
 COPY . $APP_ROOT
+
+# FIX ME `&&` を使いつつexec形式で書きたい
+CMD bash -c "rm ./tmp/pids/server.pid && rails server -b 0.0.0.0"

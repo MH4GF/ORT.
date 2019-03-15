@@ -12,7 +12,7 @@
 #  encrypted_password     :string           default(""), not null
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
-#  name                   :string
+#  name                   :string           not null
 #  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
@@ -37,7 +37,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :posts, dependent: :delete_all
 
-  validates :default_time, numericality: { less_than_or_equal_to: 99 }
+  validates :allow_linked_tweet, presence: true
+  validates :default_time, presence: true, numericality: { less_than_or_equal_to: 99 }
+  validates :email, uniqueness: true
 
   def self.find_for_oauth(auth)
     User.find_by(uid: auth.uid, provider: auth.provider) || User.create_by(auth)
