@@ -16,4 +16,5 @@ RUN bundle install
 
 COPY . $APP_ROOT
 
+RUN rm ./tmp/pids/server.pid
 CMD ["rails", "server", "-b", "0.0.0.0"]
