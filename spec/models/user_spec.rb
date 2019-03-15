@@ -12,7 +12,7 @@
 #  encrypted_password     :string           default(""), not null
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
-#  name                   :string
+#  name                   :string           not null
 #  provider               :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
