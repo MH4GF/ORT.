@@ -16,5 +16,5 @@ RUN bundle install
 
 COPY . $APP_ROOT
 
-RUN rm ./tmp/pids/server.pid
-CMD ["rm", "./tmp/pids/server.pid", "&&", "rails", "server", "-b", "0.0.0.0"]
+# FIX ME `&&` を使いつつexec形式で書きたい
+CMD ["rm ./tmp/pids/server.pid && rails server -b 0.0.0.0"]
