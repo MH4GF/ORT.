@@ -20,6 +20,7 @@ AllCops:
     - 'Guardfile'
     - 'Rakefile'
     - 'lib/tasks/**'
+    - 'vendor/**/*'
 
 # 日本語でのコメントを許可
 AsciiComments:
