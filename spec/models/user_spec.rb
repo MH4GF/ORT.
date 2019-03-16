@@ -33,4 +33,29 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  let(:user) { create(:user) }
+
+  describe '#total_running_time' do
+    subject { user.total_running_time['total_min'] }
+
+    context 'Redisにキャッシュが存在している場合' do
+      it '値を返す' do
+        is_expected.to eq '25'
+      end
+    end
+    context 'Redisにキャッシュが存在しない場合' do
+      before { REDIS.flushdb }
+      it '値を返す(合計時間を計算し、キャッシュに保存する)' do
+        is_expected.to eq '25'
+      end
+    end
+  end
+
+  describe '#set_total_running_time_to_redis' do
+    subject { -> { user.set_total_running_time_to_redis } }
+    before { REDIS.flushdb }
+    it 'ユーザーの合計学習時間をRedisに保存する' do
+      is_expected.to change { REDIS.data.size }.by(1)
+    end
+  end
 end

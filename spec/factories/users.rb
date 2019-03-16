@@ -37,8 +37,9 @@ FactoryBot.define do
     uid       { '123' }
     provider  { 'twitter' }
     name      { 'anonymous' }
+
     after(:build) do |user|
-      create(:post, user: user)
+      user.posts << FactoryBot.create(:post, user: user)
     end
   end
 end

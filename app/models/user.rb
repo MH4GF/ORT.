@@ -72,6 +72,6 @@ class User < ApplicationRecord
     running_time = SumRunningTimeService.new(posts).call
     REDIS.mapped_hmset("#{self.id}-running-time", running_time)
 
-    running_time
+    REDIS.hgetall("#{self.id}-running-time")
   end
 end

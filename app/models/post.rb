@@ -17,7 +17,7 @@ class Post < ApplicationRecord
 
   acts_as_taggable
 
-  before_save :update_user_total_running_time
+  after_save :update_user_total_running_time
 
   def tweet
     client = Twitter::REST::Client.new do |config|
