@@ -26,10 +26,10 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'mock_redis'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
-  gem 'mock_redis'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-github'
