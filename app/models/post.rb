@@ -41,6 +41,6 @@ class Post < ApplicationRecord
   end
 
   def update_user_total_running_time
-    user.set_total_running_time_to_redis
+    user.set_total_running_time
   end
 end

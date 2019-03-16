@@ -64,14 +64,24 @@ class User < ApplicationRecord
   end
 
   def total_running_time
-    running_time = REDIS.hgetall("#{self.id}-running-time")
-    running_time.presence || set_total_running_time_to_redis
+    running_time = get_total_running_time
+    running_time.presence || set_total_running_time
   end
 
-  def set_total_running_time_to_redis
+  def set_total_running_time
     running_time = SumRunningTimeService.new(posts).call
-    REDIS.mapped_hmset("#{self.id}-running-time", running_time)
+    REDIS.mapped_hmset(running_time_key, running_time)
 
-    REDIS.hgetall("#{self.id}-running-time")
+    get_total_running_time
+  end
+
+  private
+
+  def get_total_running_time
+    REDIS.hgetall(running_time_key)
+  end
+
+  def running_time_key
+    "#{self.id}-running-time"
   end
 end

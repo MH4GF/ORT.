@@ -51,8 +51,8 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '#set_total_running_time_to_redis' do
-    subject { -> { user.set_total_running_time_to_redis } }
+  describe '#set_total_running_time' do
+    subject { -> { user.set_total_running_time } }
     before { REDIS.flushdb }
     it 'ユーザーの合計学習時間をRedisに保存する' do
       is_expected.to change { REDIS.data.size }.by(1)
