@@ -16,6 +16,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
+require 'mock_redis'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -95,4 +96,10 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+
+  config.before(:each) do
+    redis_instance = MockRedis.new
+    allow(Redis).to receive(:new).and_return(redis_instance)
+    REDIS = Redis.new
+  end
 end
