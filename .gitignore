@@ -23,3 +23,8 @@
 
 # dotenv
 .env
+
+/public/assets/*
+/public/uploads/*
+/public/packs/*
+/public/packs-test/*
